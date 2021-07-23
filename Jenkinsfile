@@ -49,7 +49,7 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Compile & Unit Tests<------------"
-    sh 'npm run test'
+        // sh 'npm test'
       }
     }
 
@@ -65,7 +65,6 @@ pipeline {
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        sh 'npm start'
       }
     }  
   }
