@@ -1,0 +1,100 @@
+import * as PropTypes from 'prop-types';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
+import { Ticket } from '../../models/Ticket';
+import { Tittle } from 'app/shared/components/Tittle'
+import { CardTicket } from '../Card'
+import { DivContent, Form, SpanError } from './styles'
+import Modal from '@material-ui/core/Modal';
+import { Input } from 'app/shared/components/Input';
+import { ActualizarTicket } from '../ActualizarTicket'
+
+
+export interface ListaTicketsProps {
+    tickets: Array<Ticket>;
+    ticketNew: Ticket,
+    guardarTicket: (ticket: Ticket) => void;
+    actualizarTicket: (idTicket: number, ticket: Ticket) => void;
+}
+
+export const ListaTickets: React.FC<ListaTicketsProps> = ({
+    tickets,
+    ticketNew,
+    guardarTicket,
+    actualizarTicket,
+}) => {
+
+    useEffect(() => {
+        console.log(ticketNew, 'ticketNew')
+    }, [guardarTicket]);
+
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = (ticket: Ticket) => {
+        guardarTicket(ticket)
+        setOpen(true);
+    };
+
+    const handleShow = (show: boolean) => {
+        setOpen(show);
+    }
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (
+        <DivContent>
+            <Tittle
+                msg='Lista de tickets'
+            />
+            {
+                tickets.map((ticket: Ticket) => {
+                    return (
+                        <div
+                            // type="button"
+                            // key={Math.random()}
+                            onClick={() => handleOpen(ticket)}
+                        >
+                            <CardTicket
+                                telefonoUsuario={ticket.telefonoUsuario}
+                                nombreUsuario={ticket.nombreUsuario}
+                                horaIngreso={ticket.horaIngreso}
+                                horaSalida={ticket.horaSalida}
+                                idCancha={ticket.idCancha}
+                                valor={ticket.valor}
+                            />
+                        </div>
+                    )
+                })
+            }
+
+            <div>
+
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                    style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}
+                >
+                    <div style={{ background: '#FFF', width: '80vmin', padding: '4vmin', borderRadius: '2vmin' }}>
+                        <ActualizarTicket
+                            ticket={ticketNew}
+                            formTitle='Actualizar Ticket'
+                            onSubmit={actualizarTicket}
+                            handleShow={handleShow}
+                        />
+                    </div>
+                </Modal>
+            </div>
+
+        </DivContent >
+    );
+};
+
+ListaTickets.propTypes = {
+    tickets: PropTypes.array.isRequired,
+    guardarTicket: PropTypes.func.isRequired,
+}

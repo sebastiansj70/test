@@ -1,0 +1,12 @@
+.appbar {
+    width: 92vmin;
+    position: relative;
+}
+
+.tablis {
+    background: #2d6133;
+}
+
+.tab {
+    width: 55vmin;
+}
