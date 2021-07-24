@@ -26,7 +26,6 @@ export default function (
       };
     }
     case AGREGAR_PRODUCTO: {
-      console.log(action, '********')
       const producto = action.payload;
       return {
         ...state,

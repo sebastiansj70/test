@@ -31,14 +31,12 @@ export default function (
 ): EstadoTicket {
     switch (action.type) {
         case LISTAR_TICKETS:
-            console.log(action, 'LISTAR_TICKETS')
             const ticket = action.payload;
             return {
                 ...state,
                 ticket,
             };
         case AGREGAR_TICKET: {
-            console.log(action, 'AGREGAR_TICKET')
             const ticket = action.payload
             return {
                 ...state,
@@ -47,7 +45,6 @@ export default function (
         }
         case GUARDAR_TICKET: {
             const ticket = action.payload
-            console.log(action, 'GUARDAR_TICKET')
             return {
                 ...state,
                 ticketNew: ticket
@@ -56,7 +53,6 @@ export default function (
 
         case GETID_TICKET: {
             const idticket = action.payload
-            console.log(action, 'GETID_TICKET')
             return {
                 ...state,
                 // idTicket:idticket
