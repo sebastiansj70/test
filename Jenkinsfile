@@ -50,8 +50,8 @@ pipeline {
       steps{
         echo "------------>Compile & Unit Tests<------------"
         // sh 'npm test'
-        sh 'chmod +x gradlew'
-        sh './gradlew --b ./build.gradle test'
+        // sh 'chmod +x gradlew'
+        // sh './gradlew --b ./build.gradle test'
 
       }
     }
