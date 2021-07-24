@@ -5,9 +5,9 @@ interface HolaMundoProps {
     msg: string;
 }
 
-export const HolaMundo: React.FC<HolaMundoProps> = ({ msg }) => <h1>{msg}</h1>
+export const HolaMundo: React.FC<HolaMundoProps> = ({ msg }) => <h1>{msg}</h1>;
 
 
 HolaMundo.propTypes = {
     msg: PropTypes.string.isRequired
-}
+};

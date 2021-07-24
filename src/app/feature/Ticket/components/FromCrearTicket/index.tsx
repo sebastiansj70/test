@@ -2,12 +2,13 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { Button } from 'app/shared/components/Button';
-import { FormikHelpers, FormikValues } from 'formik/dist/types';
+import { Form } from './styles';
+import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
+import { SpanError } from './styles';
 import { Ticket } from '../../models/Ticket';
-import { SpanError, Form } from './styles';
-import { Formik, useFormik } from 'formik';
-import { Tittle } from '../../../../shared/components/Tittle'
+import { Tittle } from '../../../../shared/components/Tittle';
+import { useFormik } from 'formik';
 
 interface FormValues {
     idTicket: number;
@@ -69,7 +70,7 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = (({
         initialValues,
         validationSchema,
         onSubmit: handleSubmit,
-    })
+    });
 
     return (
         <Form onSubmit={formik.handleSubmit}>
@@ -141,7 +142,7 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = (({
             )}
             <Button type="submit">Registrar</Button>
         </Form>
-    )
+    );
 });
 
 

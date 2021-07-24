@@ -1,13 +1,14 @@
+import './styles.css';
 import * as PropTypes from 'prop-types';
-import * as React from 'react';
-import { ListaTickets } from '../../components/ListarTickets';
+import { AppBar, Tab } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { ContentAppBar } from './styles';
 import { FormCrearTicket } from '../../components/FromCrearTicket';
+import { ListaTickets } from '../../components/ListarTickets';
+import { TabContext } from '@material-ui/lab';
+import { TabList } from '@material-ui/lab';
+import { TabPanel } from '@material-ui/lab';
 import { Ticket } from '../../models/Ticket';
-import { useEffect, useState } from 'react';
-import { Paper, Tabs, AppBar, Tab } from '@material-ui/core';
-import { TabPanel, TabContext, TabList } from '@material-ui/lab';
-import { ContentAppBar } from './styles'
-import './styles.css'
 
 interface GestionTicketProps {
     ticket: Array<Ticket>;
@@ -15,7 +16,7 @@ interface GestionTicketProps {
     agregarNuevoTicket: (ticket: Ticket) => void;
     listarTickets: () => void;
     guardarTicket: (ticket: Ticket) => void;
-    actualizarTicket: (idTicket: number, ticket: Ticket) => void
+    actualizarTicket: (idTicket: number, ticket: Ticket) => void;
 }
 
 
@@ -64,11 +65,22 @@ export const GestionTicket: React.FC<GestionTicketProps> = ({
             </TabContext>
         </ContentAppBar>
     );
-}
+};
 
 
 GestionTicket.propTypes = {
     ticket: PropTypes.array.isRequired,
     agregarNuevoTicket: PropTypes.func.isRequired,
     listarTickets: PropTypes.func.isRequired,
-}
+    actualizarTicket: PropTypes.func.isRequired,
+    guardarTicket: PropTypes.func.isRequired,
+    ticketNew: PropTypes.shape({
+        idTicket: PropTypes.number.isRequired,
+        telefonoUsuario: PropTypes.number.isRequired,
+        nombreUsuario: PropTypes.string.isRequired,
+        horaIngreso: PropTypes.number.isRequired,
+        horaSalida: PropTypes.number.isRequired,
+        idCancha: PropTypes.number.isRequired,
+        valor: PropTypes.number.isRequired,
+    }).isRequired,
+};

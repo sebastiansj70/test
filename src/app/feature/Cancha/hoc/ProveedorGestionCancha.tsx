@@ -1,8 +1,8 @@
 import {
+    actualizarTicket,
     agregarCanchaAsync,
     eliminarCanchas,
-    listarCanchaAsync,
-    actualizarTicket
+    listarCanchaAsync
 } from 'app/core/redux/acciones/cancha/CanchasAcciones';
 import { EstadoGeneral } from 'app/core/redux/modelo/EstadoGeneral';
 // import { GestionTicket } from '../containers/GestionTicket';

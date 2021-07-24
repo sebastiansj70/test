@@ -1,11 +1,9 @@
 import {
     AGREGAR_TICKET,
-    ELIMINAR_TICKET,
-    LISTAR_TICKETS,
-    ACTUALIZAR_TICKET,
-    TiposAccionesTicket,
-    GUARDAR_TICKET,
     GETID_TICKET,
+    GUARDAR_TICKET,
+    LISTAR_TICKETS,
+    TiposAccionesTicket,
 } from '../../acciones/Ticket/TicketTiposAcciones';
 import { EstadoTicket } from '../../modelo/EstadoTicket';
 import { Ticket } from 'app/feature/Ticket/models/Ticket';
@@ -22,7 +20,7 @@ const initialState: EstadoTicket = {
         valor: 50
     },
     idTicket: 1
-}
+};
 
 
 export default function (
@@ -31,32 +29,31 @@ export default function (
 ): EstadoTicket {
     switch (action.type) {
         case LISTAR_TICKETS:
+            return {
+                ...state,
+                ticket: action.payload,
+            };
+        case AGREGAR_TICKET: {
             const ticket = action.payload;
             return {
                 ...state,
-                ticket,
-            };
-        case AGREGAR_TICKET: {
-            const ticket = action.payload
-            return {
-                ...state,
                 ticket: [...state.ticket, ticket]
-            }
+            };
         }
         case GUARDAR_TICKET: {
-            const ticket = action.payload
+            const ticket = action.payload;
             return {
                 ...state,
                 ticketNew: ticket
-            }
+            };
         }
 
         case GETID_TICKET: {
-            const idticket = action.payload
+            const idticket = action.payload;
             return {
                 ...state,
                 // idTicket:idticket
-            }
+            };
         }
         default:
             return state;

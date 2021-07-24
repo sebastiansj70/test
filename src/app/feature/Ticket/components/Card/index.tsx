@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { TicketCard, DivData, DivHeader, H3Lineal, ImgTicket, LinearTicket } from './styles';
+import { DivData, DivHeader, H3Lineal, ImgTicket, LinearTicket, TicketCard } from './styles';
 import LogoBall from 'assets/img/logo-ball.png';
 
 interface CardTicketProps {
@@ -30,30 +30,30 @@ export const CardTicket: React.FC<CardTicketProps> = (({
             </DivHeader>
 
             <DivData >
-                <h3>{`Teléfono:  `}</h3>
+                <h3>{'Teléfono:  '}</h3>
                 <H3Lineal>{telefonoUsuario}</H3Lineal>
             </DivData>
             <DivData>
-                <h3>{`Nombre : `}</h3>
+                <h3>{'Nombre : '}</h3>
                 <H3Lineal>{nombreUsuario}</H3Lineal>
             </DivData>
             <DivData>
-                <h3>{`Ingreso : `}</h3>
+                <h3>{'Ingreso : '}</h3>
                 <H3Lineal>{horaIngreso}</H3Lineal>
             </DivData>
             <DivData>
-                <h3>{`Salida :`}</h3>
+                <h3>{'Salida :'}</h3>
                 <H3Lineal>{horaSalida}</H3Lineal>
             </DivData>
             <DivData>
-                <h3>{`Cancha : `}</h3>
+                <h3>{'Cancha : '}</h3>
                 <H3Lineal>{idCancha}</H3Lineal>
             </DivData>
             <LinearTicket>
                 --------------------------------------------------------
             </LinearTicket>
             <DivData>
-                <h3>{`valor : `}</h3>
+                <h3>{'valor : '}</h3>
                 <H3Lineal>{valor}</H3Lineal>
             </DivData>
         </TicketCard>

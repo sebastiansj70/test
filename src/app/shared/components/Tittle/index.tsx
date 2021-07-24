@@ -7,9 +7,9 @@ interface TittleProps {
     msg: string;
 }
 
-export const Tittle: React.FC<TittleProps> = ({ msg }) => <Tittles>{msg}</Tittles>
+export const Tittle: React.FC<TittleProps> = ({ msg }) => <Tittles>{msg}</Tittles>;
 
 
 Tittle.propTypes = {
     msg: PropTypes.string.isRequired
-}
+};

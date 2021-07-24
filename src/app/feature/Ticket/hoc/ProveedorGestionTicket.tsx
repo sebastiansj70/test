@@ -1,9 +1,9 @@
 import {
+    actualizarTicketsAsync,
     agregarTicketAsync,
     eliminarTicket,
-    listarTicketsAsync,
-    actualizarTicketsAsync,
-    guardarTicket
+    guardarTicket,
+    listarTicketsAsync
 } from 'app/core/redux/acciones/Ticket/TicketAcciones';
 import { EstadoGeneral } from 'app/core/redux/modelo/EstadoGeneral';
 import { GestionTicket } from '../containers/GestionTicket';

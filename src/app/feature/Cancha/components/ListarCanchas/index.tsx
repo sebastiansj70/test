@@ -2,8 +2,8 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { Cancha } from '../../models/Cancha';
 import { CardCancha } from '../Card';
-import { ContentCard } from './styles'
-import { Tittle } from '../../../../shared/components/Tittle'
+import { ContentCard } from './styles';
+import { Tittle } from '../../../../shared/components/Tittle';
 
 
 export interface ListaCanchaProps {
@@ -26,7 +26,7 @@ export const ListaCancha: React.FC<ListaCanchaProps> = ({
                             idCancha={cancha.idCancha}
                             statusCancha={cancha.statusCancha}
                         />
-                    )
+                    );
                 })
             }
         </ContentCard>

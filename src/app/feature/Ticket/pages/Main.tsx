@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Layout } from 'app/shared/components/Layout';
-import { RouteComponentProps } from 'react-router-dom';
-import { HolaMundo } from '../components/HolaMundo'
 import { ProveedorGestionTicket } from '../hoc/ProveedorGestionTicket';
+import { RouteComponentProps } from 'react-router-dom';
 
 
 const MainPage: React.FC<RouteComponentProps> = () => {
@@ -11,7 +10,7 @@ const MainPage: React.FC<RouteComponentProps> = () => {
             <ProveedorGestionTicket />
         </Layout>
     );
-}
+};
 
 MainPage.displayName = 'TicketMainPage';
 

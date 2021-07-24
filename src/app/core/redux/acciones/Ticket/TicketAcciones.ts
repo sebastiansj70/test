@@ -1,11 +1,11 @@
 import {
+    ACTUALIZAR_TICKET,
     AGREGAR_TICKET,
     ELIMINAR_TICKET,
-    LISTAR_TICKETS,
-    ACTUALIZAR_TICKET,
-    TiposAccionesTicket,
+    GETID_TICKET,
     GUARDAR_TICKET,
-    GETID_TICKET
+    LISTAR_TICKETS,
+    TiposAccionesTicket
 } from './TicketTiposAcciones';
 import { Ticket } from 'app/feature/Ticket/models/Ticket';
 import { TicketRepositorio } from 'app/core/api/tickets.repositorio';
@@ -75,8 +75,8 @@ export function agregarTicketAsync(ticket: Ticket) {
     return function () {
         TicketRepositorio.AgregarTicket(
             ticket
-        )
-    }
+        );
+    };
 }
 
 
@@ -94,6 +94,6 @@ export function actualizarTicketsAsync(idTicket: number, ticket: Ticket) {
     return function () {
         TicketRepositorio.actualizarTicket(
             idTicket, ticket
-        )
+        );
     };
 }

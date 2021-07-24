@@ -1,17 +1,16 @@
+import './styles.css';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-
-// import { ListaTickets } from '../../components/ListarTickets';
-import { ListaCancha } from '../../components/ListarCanchas';
-import { FormCrearCancha } from '../../components/FormCrearCancha';
-
-// import { Ticket } from '../../models/Ticket';
+import { AppBar, Tab } from '@material-ui/core';
 import { Cancha } from '../../models/Cancha';
-import { useEffect, useState } from 'react';
-import { Paper, Tabs, AppBar, Tab } from '@material-ui/core';
-import { TabPanel, TabContext, TabList } from '@material-ui/lab';
-import { ContentAppBar } from './styles'
-import './styles.css'
+import { ContentAppBar } from './styles';
+import { FormCrearCancha } from '../../components/FormCrearCancha';
+import { ListaCancha } from '../../components/ListarCanchas';
+import { TabContext } from '@material-ui/lab';
+import { TabList } from '@material-ui/lab';
+import { TabPanel } from '@material-ui/lab';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 
 
@@ -65,7 +64,7 @@ export const GestionCancha: React.FC<GestionCanchaProps> = ({
             </TabContext>
         </ContentAppBar>
     );
-}
+};
 
 
 GestionCancha.propTypes = {
@@ -74,4 +73,4 @@ GestionCancha.propTypes = {
     // eliminarTicket: PropTypes.func.isRequired,
     listarCanchas: PropTypes.func.isRequired,
     // actualizarTicket: PropTypes.func.isRequired,
-}
+};

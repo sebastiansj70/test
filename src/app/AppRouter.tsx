@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { HomeRouter } from 'app/feature/Home/HomeRouter';
+import { CanchaRouter } from 'app/feature/Cancha/CanchaRouter';
 import MainPage from 'app/Main';
 import { NavigationHeader } from 'app/shared/components/NavigationHeader';
-import { ProductoRouter } from 'app/feature/Producto/ProductoRouter';
 import { TicketRouter } from 'app/feature/Ticket/TicketRouter';
-import { CanchaRouter } from 'app/feature/Cancha/CanchaRouter';
 
 export const AppRouter = () => {
   return (

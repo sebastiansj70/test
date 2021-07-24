@@ -1,13 +1,12 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
-import { Ticket } from '../../models/Ticket';
-import { Tittle } from 'app/shared/components/Tittle'
-import { CardTicket } from '../Card'
-import { DivContent, Form, SpanError } from './styles'
+import { ActualizarTicket } from '../ActualizarTicket';
+import { CardTicket } from '../Card';
+import { DivContent } from './styles';
 import Modal from '@material-ui/core/Modal';
-import { Input } from 'app/shared/components/Input';
-import { ActualizarTicket } from '../ActualizarTicket'
+import { Ticket } from '../../models/Ticket';
+import { Tittle } from 'app/shared/components/Tittle';
+import { useEffect } from 'react';
 
 
 export interface ListaTicketsProps {
@@ -25,20 +24,20 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
 }) => {
 
     useEffect(() => {
-        console.log(ticketNew, 'ticketNew')
+        console.log(ticketNew, 'ticketNew');
     }, [guardarTicket]);
 
 
     const [open, setOpen] = React.useState(false);
 
     const handleOpen = (ticket: Ticket) => {
-        guardarTicket(ticket)
+        guardarTicket(ticket);
         setOpen(true);
     };
 
     const handleShow = (show: boolean) => {
         setOpen(show);
-    }
+    };
 
     const handleClose = () => {
         setOpen(false);
@@ -53,8 +52,7 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
                 tickets.map((ticket: Ticket) => {
                     return (
                         <div
-                            // type="button"
-                            // key={Math.random()}
+                            key={Math.random()}
                             onClick={() => handleOpen(ticket)}
                         >
                             <CardTicket
@@ -66,7 +64,7 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
                                 valor={ticket.valor}
                             />
                         </div>
-                    )
+                    );
                 })
             }
 
@@ -97,4 +95,14 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
 ListaTickets.propTypes = {
     tickets: PropTypes.array.isRequired,
     guardarTicket: PropTypes.func.isRequired,
-}
+    ticketNew: PropTypes.shape({
+        idTicket: PropTypes.number.isRequired,
+        telefonoUsuario: PropTypes.number.isRequired,
+        nombreUsuario: PropTypes.string.isRequired,
+        horaIngreso: PropTypes.number.isRequired,
+        horaSalida: PropTypes.number.isRequired,
+        idCancha: PropTypes.number.isRequired,
+        valor: PropTypes.number.isRequired,
+    }).isRequired,
+    actualizarTicket: PropTypes.func.isRequired,
+};

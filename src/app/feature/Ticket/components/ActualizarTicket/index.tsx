@@ -1,14 +1,13 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { Button } from 'app/shared/components/Button';
-import { Ticket } from '../../models/Ticket';
-import { DivContent, Form, SpanError } from './styles'
-import { Tittle } from 'app/shared/components/Tittle'
-import { Input } from 'app/shared/components/Input';
 import * as Yup from 'yup';
-import { FormikHelpers, FormikValues } from 'formik/dist/types';
-import { Formik, useFormik } from 'formik';
-import { getIdTicket } from 'app/core/redux/acciones/Ticket/TicketAcciones';
+import { Button } from 'app/shared/components/Button';
+import { Form } from './styles';
+import { FormikHelpers } from 'formik/dist/types';
+import { Input } from 'app/shared/components/Input';
+import { Ticket } from '../../models/Ticket';
+import { Tittle } from 'app/shared/components/Tittle';
+import { useFormik } from 'formik';
 
 interface FormValues {
     idticket: number;
@@ -62,7 +61,7 @@ export const ActualizarTicket: React.FC<ActualizarTicketProps> = ({
         values: FormValues,
         { resetForm }: FormikHelpers<FormValues>
     ) => {
-        console.log(values, 'submit')
+        console.log(values, 'submit');
         onSubmit(values.idticket, {
             idTicket: values.idticket,
             telefonoUsuario: values.telefonoUsuario,
@@ -79,7 +78,7 @@ export const ActualizarTicket: React.FC<ActualizarTicketProps> = ({
         initialValues,
         validationSchema,
         onSubmit: handleSubmit,
-    })
+    });
 
 
 
@@ -155,5 +154,15 @@ ActualizarTicket.propTypes = {
         idCancha: PropTypes.number.isRequired,
         valor: PropTypes.number.isRequired,
     }).isRequired,
+    handleShow: PropTypes.func.isRequired,
+    initialValues: PropTypes.shape({
+        idticket: PropTypes.number.isRequired,
+        telefonoUsuario: PropTypes.number.isRequired,
+        nombreUsuario: PropTypes.string.isRequired,
+        horaIngreso: PropTypes.number.isRequired,
+        horaSalida: PropTypes.number.isRequired,
+        idCancha: PropTypes.number.isRequired,
+        valor: PropTypes.number.isRequired,
+    }),
     // onEliminar: PropTypes.func.isRequired,
 };

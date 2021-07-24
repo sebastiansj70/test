@@ -1,13 +1,11 @@
 import {
+    ACTUALIZAR_CANCHAS,
     AGREGAR_CANCHAS,
     ELIMINAR_CANCHAS,
     LISTAR_CANCHAS,
-    ACTUALIZAR_CANCHAS,
     TiposAccionesCanchas,
 } from './CanchasTiposAcciones';
-import { Producto } from 'app/feature/Producto/models/Producto';
 import { Cancha } from 'app/feature/Cancha/models/Cancha';
-import { ProductoRepositorio } from 'app/core/api/productos.repositorio';
 import { CanchaRepositorio } from 'app/core/api/cancha.repositorio';
 
 export function listarCanchas(
@@ -61,6 +59,6 @@ export function agregarCanchaAsync(cancha: Cancha) {
     return function () {
         CanchaRepositorio.AgregarCancha(
             cancha
-        )
-    }
+        );
+    };
 }
