@@ -24,7 +24,6 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
 }) => {
 
     useEffect(() => {
-        console.log(ticketNew, 'ticketNew');
     }, [guardarTicket]);
 
 

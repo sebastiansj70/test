@@ -36,7 +36,7 @@ const validationSchema = Yup.object().shape<FormValues>({
     valor: Yup.number().required('El campo valor es requerido.'),
 });
 
-export const FormCrearTicket: React.FC<FormCrearTicketProp> = (({
+export const FormCrearTicket: React.FC<FormCrearTicketProp> = ({
     onSubmit,
     disabled,
     formTitle,
@@ -143,7 +143,7 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = (({
             <Button type="submit">Registrar</Button>
         </Form>
     );
-});
+};
 
 
 FormCrearTicket.propTypes = {

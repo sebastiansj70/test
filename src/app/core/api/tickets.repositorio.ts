@@ -18,7 +18,6 @@ export const TicketRepositorio = {
     },
 
     actualizarTicket: (idTicket: number, ticket: Ticket) => {
-        console.log(idTicket, 'IDDDDDD', ticket, 'ticketttttttt');
         axiosIntance.put(`/ticket/actualizar/${idTicket}`,
             JSON.stringify(ticket)
             , {}).then((response) => {

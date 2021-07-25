@@ -61,7 +61,6 @@ export const ActualizarTicket: React.FC<ActualizarTicketProps> = ({
         values: FormValues,
         { resetForm }: FormikHelpers<FormValues>
     ) => {
-        console.log(values, 'submit');
         onSubmit(values.idticket, {
             idTicket: values.idticket,
             telefonoUsuario: values.telefonoUsuario,
