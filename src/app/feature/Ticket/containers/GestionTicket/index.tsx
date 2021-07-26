@@ -2,11 +2,10 @@ import './styles.css';
 import * as PropTypes from 'prop-types';
 import { AppBar, Tab } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { TabList, TabPanel } from '@material-ui/lab';
+import { TabList, TabPanel, TabContext } from '@material-ui/lab';
 import { ContentAppBar } from './styles';
 import { FormCrearTicket } from '../../components/FromCrearTicket';
 import { ListaTickets } from '../../components/ListarTickets';
-import { TabContext } from '@material-ui/lab';
 import { Ticket } from '../../models/Ticket';
 
 interface GestionTicketProps {
@@ -87,4 +86,4 @@ GestionTicket.propTypes = {
         idCancha: PropTypes.number.isRequired,
         valor: PropTypes.number.isRequired,
     }).isRequired
-};
+}

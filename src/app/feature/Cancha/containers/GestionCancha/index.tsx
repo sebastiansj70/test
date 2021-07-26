@@ -81,4 +81,4 @@ GestionCancha.propTypes = {
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
     }).isRequired
-};
+}

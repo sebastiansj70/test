@@ -16,7 +16,7 @@ export function listarCanchas(
         type: LISTAR_CANCHAS,
         payload: cancha,
     };
-}
+};
 
 export function agregarNuevaCancha(
     cancha: Cancha
@@ -25,7 +25,7 @@ export function agregarNuevaCancha(
         type: AGREGAR_CANCHAS,
         payload: cancha,
     };
-}
+};
 
 export function eliminarCanchas(
     cancha: Cancha
@@ -34,7 +34,7 @@ export function eliminarCanchas(
         type: ELIMINAR_CANCHAS,
         payload: cancha,
     };
-}
+};
 
 export function actualizarTicket(
     cancha: Cancha
@@ -43,7 +43,7 @@ export function actualizarTicket(
         type: ACTUALIZAR_CANCHAS,
         payload: cancha
     };
-}
+};
 
 export function listarCanchaAsync() {
     return function (dispacth: any) {
@@ -54,7 +54,7 @@ export function listarCanchaAsync() {
                 )
             );
     };
-}
+};
 
 export function agregarCanchaAsync(cancha: Cancha) {
     return function () {
@@ -62,7 +62,7 @@ export function agregarCanchaAsync(cancha: Cancha) {
             cancha
         );
     };
-}
+};
 
 export function actualizarCanchaAsync(idCancha: number, cancha: Cancha) {
     return function () {
@@ -70,7 +70,7 @@ export function actualizarCanchaAsync(idCancha: number, cancha: Cancha) {
             idCancha, cancha
         );
     };
-}
+};
 
 
 export function guardarCancha(
@@ -80,4 +80,4 @@ export function guardarCancha(
         type: GUARDAR_CANCHA,
         payload: cancha
     };
-}
+};

@@ -16,7 +16,7 @@ interface FormValues {
 
 
 interface ActualizarCanchaProps {
-    onSubmit: (idCancha: number, payload: Cancha) => any;
+    onSubmit: (idCancha: number, payload: Cancha) => void;
     formTitle: string;
     cancha: Cancha;
     initialValues?: FormValues;
@@ -41,7 +41,6 @@ export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
     },
 
 }) => {
-    // const handleEliminar = () => onEliminar(ticket);
     const handleSubmit = (
         values: FormValues,
         { resetForm }: FormikHelpers<FormValues>

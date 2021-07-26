@@ -1,12 +1,11 @@
 import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { ActualizarCancha } from '../ActualizarCancha';
 import { Cancha } from '../../models/Cancha';
 import { CardCancha } from '../Card';
 import { ContentCard } from './styles';
 import Modal from '@material-ui/core/Modal';
 import { Tittle } from '../../../../shared/components/Tittle';
-import { useEffect } from 'react';
 
 
 export interface ListaCanchaProps {

@@ -48,13 +48,6 @@ export default function (
             };
         }
 
-        case GETID_TICKET: {
-            const idticket = action.payload;
-            return {
-                ...state,
-                // idTicket:idticket
-            };
-        }
         default:
             return state;
     }

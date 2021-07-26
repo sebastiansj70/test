@@ -2,18 +2,16 @@ import { Ticket } from '../../feature/Ticket/models/Ticket';
 import { axiosIntance } from '../config/AxiosConfig';
 
 export const TicketRepositorio = {
-    consultarTickets: async () =>
-        await axiosIntance.get('/ticket/listar'),
+    consultarTickets: () =>
+        axiosIntance.get('/ticket/listar'),
 
 
-    AgregarTicket: async(ticket: Ticket) => {
+    AgregarTicket: async (ticket: Ticket) => {
 
         await axiosIntance.post('/ticket',
             JSON.stringify(ticket)
             , {}).then((response) => {
-                console.log(response);
             }, (error) => {
-                console.log(error);
             });
     },
 
@@ -21,9 +19,7 @@ export const TicketRepositorio = {
         await axiosIntance.put(`/ticket/actualizar/${idTicket}`,
             JSON.stringify(ticket)
             , {}).then((response) => {
-                console.log(response);
             }, (error) => {
-                console.log(error);
             });
     }
 };
