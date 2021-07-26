@@ -1,6 +1,5 @@
 import {
     AGREGAR_TICKET,
-    GETID_TICKET,
     GUARDAR_TICKET,
     LISTAR_TICKETS,
     TiposAccionesTicket,

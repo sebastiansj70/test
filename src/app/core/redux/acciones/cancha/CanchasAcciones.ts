@@ -80,4 +80,4 @@ export function guardarCancha(
         type: GUARDAR_CANCHA,
         payload: cancha
     };
-}
+};
