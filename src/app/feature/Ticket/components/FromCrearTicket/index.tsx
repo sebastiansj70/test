@@ -51,9 +51,7 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
         valor: 0,
     },
 }) => {
-    const handleSubmit = (
-        values: FormValues,
-        { resetForm }: FormikHelpers<FormValues>
+    const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>
     ) => {
         onSubmit({
             idTicket: values.idTicket,
@@ -76,7 +74,8 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
 
     return (
         <Form onSubmit={formik.handleSubmit}>
-            <Tittle msg={formTitle} /><Input
+            <Tittle msg={formTitle} />
+            <Input
                 id='telefonoUsuario'
                 disabled={disabled}
                 placeholder='Telefono de usuario'
@@ -84,9 +83,6 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
                 onChange={formik.handleChange}
                 type='number'
             />
-            {formik.touched.telefonoUsuario && formik.errors.telefonoUsuario && (
-                <SpanError>{formik.errors.telefonoUsuario}</SpanError>
-            )}
             <Input
                 id='nombreUsuario'
                 disabled={disabled}
@@ -94,9 +90,6 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
                 name='nombreUsuario'
                 onChange={formik.handleChange}
             />
-            {formik.touched.nombreUsuario && formik.errors.nombreUsuario && (
-                <SpanError>{formik.errors.nombreUsuario}</SpanError>
-            )}
             <Input
                 id='horaIngreso'
                 disabled={disabled}
@@ -105,9 +98,6 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
                 onChange={formik.handleChange}
                 type='number'
             />
-            {formik.touched.horaIngreso && formik.errors.horaIngreso && (
-                <SpanError>{formik.errors.horaIngreso}</SpanError>
-            )}
             <Input
                 id='horaSalida'
                 disabled={disabled}
@@ -116,9 +106,6 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
                 onChange={formik.handleChange}
                 type='number'
             />
-            {formik.touched.horaSalida && formik.errors.horaSalida && (
-                <SpanError>{formik.errors.horaSalida}</SpanError>
-            )}
             <Input
                 id='idCancha'
                 disabled={disabled}
@@ -127,9 +114,6 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
                 onChange={formik.handleChange}
                 type='number'
             />
-            {formik.touched.idCancha && formik.errors.idCancha && (
-                <SpanError>{formik.errors.idCancha}</SpanError>
-            )}
             <Input
                 id='valor'
                 disabled={disabled}
@@ -137,9 +121,7 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
                 name='valor'
                 onChange={formik.handleChange}
                 type='number'
-            />{formik.touched.valor && formik.errors.valor && (
-                <SpanError>{formik.errors.valor}</SpanError>
-            )}
+            />
             <Button type="submit" name='registro-ticket'>Registrar</Button>
         </Form>
     );
