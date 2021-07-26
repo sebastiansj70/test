@@ -6,13 +6,8 @@ import { Cancha } from '../../models/Cancha';
 import { ContentAppBar } from './styles';
 import { FormCrearCancha } from '../../components/FormCrearCancha';
 import { ListaCancha } from '../../components/ListarCanchas';
-import { TabContext } from '@material-ui/lab';
-import { TabList } from '@material-ui/lab';
-import { TabPanel } from '@material-ui/lab';
-import { useEffect } from 'react';
-import { useState } from 'react';
-
-
+import { TabContext, TabList, TabPanel } from '@material-ui/lab';
+import { useEffect, useState } from 'react';
 
 interface GestionCanchaProps {
     cancha: Array<Cancha>;
@@ -21,9 +16,7 @@ interface GestionCanchaProps {
     listarCanchas: () => void;
     actualizarCancha: (idCancha: number, cancha: Cancha) => void;
     guardarCancha: (cancha: Cancha) => void;
-
 }
-
 
 export const GestionCancha: React.FC<GestionCanchaProps> = ({
     cancha,
@@ -87,5 +80,5 @@ GestionCancha.propTypes = {
     canchaNew: PropTypes.shape({
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
-    }).isRequired,
+    }).isRequired
 };

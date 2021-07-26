@@ -2,10 +2,9 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { Button } from 'app/shared/components/Button';
-import { Form } from './styles';
+import { Form, SpanError } from './styles';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
-import { SpanError } from './styles';
 import { Ticket } from '../../models/Ticket';
 import { Tittle } from '../../../../shared/components/Tittle';
 import { useFormik } from 'formik';
@@ -85,7 +84,6 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = ({
                 placeholder='Telefono de usuario'
                 name='telefonoUsuario'
                 onChange={formik.handleChange}
-                // value={formik.values.telefonoUsuario}
                 type='number'
             />
             {formik.touched.telefonoUsuario && formik.errors.telefonoUsuario && (
@@ -97,7 +95,6 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = ({
                 placeholder='Nombre de usuario'
                 name='nombreUsuario'
                 onChange={formik.handleChange}
-            // value={formik.values.nombreUsuario}
             />
             {formik.touched.nombreUsuario && formik.errors.nombreUsuario && (
                 <SpanError>{formik.errors.nombreUsuario}</SpanError>
@@ -108,7 +105,6 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = ({
                 placeholder='Hora de ingreso'
                 name='horaIngreso'
                 onChange={formik.handleChange}
-                // value={formik.values.horaIngreso}
                 type='number'
             />
             {formik.touched.horaIngreso && formik.errors.horaIngreso && (
@@ -120,7 +116,6 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = ({
                 placeholder='Hora salida'
                 name='horaSalida'
                 onChange={formik.handleChange}
-                // value={formik.values.horaSalida}
                 type='number'
             />
             {formik.touched.horaSalida && formik.errors.horaSalida && (
@@ -132,7 +127,6 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = ({
                 placeholder='Numero de cancha'
                 name='idCancha'
                 onChange={formik.handleChange}
-                // value={formik.values.idCancha}
                 type='number'
             />
             {formik.touched.idCancha && formik.errors.idCancha && (
@@ -144,7 +138,6 @@ export const FormCrearTicket: React.FC<FormCrearTicketProp> = ({
                 placeholder='Valor'
                 name='valor'
                 onChange={formik.handleChange}
-                // value={formik.values.valor}
                 type='number'
             />{formik.touched.valor && formik.errors.valor && (
                 <SpanError>{formik.errors.valor}</SpanError>

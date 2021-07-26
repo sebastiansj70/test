@@ -1,12 +1,11 @@
 import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { ActualizarTicket } from '../ActualizarTicket';
 import { CardTicket } from '../Card';
 import { DivContent } from './styles';
 import Modal from '@material-ui/core/Modal';
 import { Ticket } from '../../models/Ticket';
 import { Tittle } from 'app/shared/components/Tittle';
-import { useEffect } from 'react';
 
 
 export interface ListaTicketsProps {
@@ -32,10 +31,6 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
     const handleOpen = (ticket: Ticket) => {
         guardarTicket(ticket);
         setOpen(true);
-    };
-
-    const handleShow = (show: boolean) => {
-        setOpen(show);
     };
 
     const handleClose = () => {
@@ -104,5 +99,5 @@ ListaTickets.propTypes = {
         idCancha: PropTypes.number.isRequired,
         valor: PropTypes.number.isRequired,
     }).isRequired,
-    actualizarTicket: PropTypes.func.isRequired,
+    actualizarTicket: PropTypes.func.isRequired
 };

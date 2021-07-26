@@ -20,5 +20,5 @@ export const CanchaRepositorio = {
             , {}).then((response) => {
             }, (error) => {
             });
-    }
+    },
 };

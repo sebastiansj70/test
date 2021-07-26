@@ -29,8 +29,8 @@ export const ListaCancha: React.FC<ListaCanchaProps> = ({
 
     const [open, setOpen] = React.useState(false);
 
-    const handleOpen = (cancha: Cancha) => {
-        guardarCancha(cancha);
+    const handleOpen = (canchae: Cancha) => {
+        guardarCancha(canchae);
         setOpen(true);
     };
 
