@@ -7,7 +7,7 @@ import {
     LISTAR_TICKETS,
     TiposAccionesTicket
 } from './TicketTiposAcciones';
-import { Ticket } from 'app/feature/Ticket/models/Ticket';
+import { Ticket } from 'app/feature/Reserva/models/Ticket';
 import { TicketRepositorio } from 'app/core/api/tickets.repositorio';
 
 

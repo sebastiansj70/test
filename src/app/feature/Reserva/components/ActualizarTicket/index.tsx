@@ -6,11 +6,11 @@ import { Form } from './styles';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
 import { Ticket } from '../../models/Ticket';
-import { Tittle } from '../../../../shared/components/Tittle';
+import { Tittle } from 'app/shared/components/Tittle';
 import { useFormik } from 'formik';
 
 interface FormValues {
-    idTicket: number;
+    idticket: number;
     telefonoUsuario: number;
     nombreUsuario: string;
     horaIngreso: number;
@@ -19,15 +19,17 @@ interface FormValues {
     valor: number
 }
 
-interface FormCrearTicketProp {
-    onSubmit: (payload: Ticket) => any;
-    disabled?: boolean;
+
+interface ActualizarTicketProps {
+    onSubmit: (idTicket: number, payload: Ticket) => any;
     formTitle: string;
+    ticket: Ticket;
     initialValues?: FormValues;
-    handleListTicket: () => void;
+    handleShow: () => void;
+
 }
 const validationSchema = Yup.object().shape<FormValues>({
-    idTicket: Yup.number().required(''),
+    idticket: Yup.number().required(''),
     telefonoUsuario: Yup.number().required('El campo telefono de usuario es requerido.'),
     nombreUsuario: Yup.string().required('El campo nombre de usuario es requerido.'),
     horaIngreso: Yup.number().required('El campo hora de ingreso es requerido.'),
@@ -36,103 +38,112 @@ const validationSchema = Yup.object().shape<FormValues>({
     valor: Yup.number().required('El campo valor es requerido.'),
 });
 
-export const Formcrearticket: React.FC<FormCrearTicketProp> = ({
+export const ActualizarTicket: React.FC<ActualizarTicketProps> = ({
+    // onEliminar,
     onSubmit,
-    handleListTicket,
-    disabled,
+    handleShow,
+    ticket,
     formTitle,
     initialValues = {
-        idTicket: 1,
-        telefonoUsuario: 321,
-        nombreUsuario: '',
-        horaIngreso: 0,
-        horaSalida: 0,
-        idCancha: 0,
-        valor: 0,
+        idticket: ticket.idTicket,
+        telefonoUsuario: ticket.telefonoUsuario,
+        nombreUsuario: ticket.nombreUsuario,
+        horaIngreso: ticket.horaIngreso,
+        horaSalida: ticket.horaSalida,
+        idCancha: ticket.idCancha,
+        valor: ticket.valor,
     },
+
 }) => {
-    const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>
+    // const handleEliminar = () => onEliminar(ticket);
+    const handleSubmit = (
+        values: FormValues,
+        { resetForm }: FormikHelpers<FormValues>
     ) => {
-        onSubmit({
-            idTicket: values.idTicket,
+        onSubmit(values.idticket, {
+            idTicket: values.idticket,
             telefonoUsuario: values.telefonoUsuario,
             nombreUsuario: values.nombreUsuario,
             horaIngreso: values.horaIngreso,
             horaSalida: values.horaSalida,
             idCancha: values.idCancha,
-            valor: values.valor
+            valor: values.valor,
         });
         resetForm();
-        handleListTicket();
+        handleShow();
     };
-
     const formik = useFormik({
         initialValues,
         validationSchema,
         onSubmit: handleSubmit,
     });
 
+
+
     return (
+
         <Form onSubmit={formik.handleSubmit}>
-            <Tittle msg={formTitle} />
+            <Tittle
+                msg={formTitle}
+            />
             <Input
-                id='telefonoUsuario'
-                disabled={disabled}
-                placeholder='Telefono de usuario'
+                placeholder=''
                 name='telefonoUsuario'
                 onChange={formik.handleChange}
                 type='number'
+                value={formik.values.telefonoUsuario}
             />
+
             <Input
-                id='nombreUsuario'
-                disabled={disabled}
-                placeholder='Nombre de usuario'
+                placeholder=''
                 name='nombreUsuario'
                 onChange={formik.handleChange}
+                value={formik.values.nombreUsuario}
+
             />
+
             <Input
-                id='horaIngreso'
-                disabled={disabled}
-                placeholder='Hora de ingreso'
+                placeholder=''
                 name='horaIngreso'
                 onChange={formik.handleChange}
                 type='number'
+                value={formik.values.horaIngreso}
+
             />
             <Input
-                id='horaSalida'
-                disabled={disabled}
-                placeholder='Hora salida'
+                placeholder=''
                 name='horaSalida'
                 onChange={formik.handleChange}
                 type='number'
+                value={formik.values.horaSalida}
+
             />
             <Input
-                id='idCancha'
-                disabled={disabled}
-                placeholder='Numero de cancha'
+                placeholder=''
                 name='idCancha'
                 onChange={formik.handleChange}
                 type='number'
+                value={formik.values.idCancha}
+
             />
             <Input
-                id='valor'
-                disabled={disabled}
-                placeholder='Valor'
+                placeholder=''
                 name='valor'
                 onChange={formik.handleChange}
                 type='number'
+                value={formik.values.valor}
+                readOnly={false}
             />
-            <Button type="submit" name='registro-ticket'>Registrar</Button>
+            <Button type="submit" name="Actualizar">Actualizar</Button>
         </Form>
+
     );
 };
 
-
-Formcrearticket.propTypes = {
+ActualizarTicket.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     formTitle: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    initialValues: PropTypes.shape({
+    ticket: PropTypes.shape({
         idTicket: PropTypes.number.isRequired,
         telefonoUsuario: PropTypes.number.isRequired,
         nombreUsuario: PropTypes.string.isRequired,
@@ -140,6 +151,16 @@ Formcrearticket.propTypes = {
         horaSalida: PropTypes.number.isRequired,
         idCancha: PropTypes.number.isRequired,
         valor: PropTypes.number.isRequired,
+    }).isRequired,
+    handleShow: PropTypes.func.isRequired,
+    initialValues: PropTypes.shape({
+        idticket: PropTypes.number.isRequired,
+        telefonoUsuario: PropTypes.number.isRequired,
+        nombreUsuario: PropTypes.string.isRequired,
+        horaIngreso: PropTypes.number.isRequired,
+        horaSalida: PropTypes.number.isRequired,
+        idCancha: PropTypes.number.isRequired,
+        valor: PropTypes.number.isRequired,
     }),
-    handleListTicket: PropTypes.func.isRequired,
+    // onEliminar: PropTypes.func.isRequired,
 };

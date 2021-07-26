@@ -1,4 +1,4 @@
-import { Ticket } from 'app/feature/Ticket/models/Ticket';
+import { Ticket } from 'app/feature/Reserva/models/Ticket';
 
 
 export const LISTAR_TICKETS = 'LISTAR_TICKETS';

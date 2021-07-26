@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@material-ui/lab';
 import { ContentAppBar } from './styles';
 import { FormCrearTicket } from '../../components/FromCrearTicket';
-import { ListaTickets } from '../../components/ListarTickets';
+import { ListaTickets } from '../../components/ListResevations';
 import { Ticket } from '../../models/Ticket';
 
 interface GestionTicketProps {

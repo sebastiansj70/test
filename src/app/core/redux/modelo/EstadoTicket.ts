@@ -1,4 +1,4 @@
-import { Ticket } from 'app/feature/Ticket/models/Ticket';
+import { Ticket } from 'app/feature/Reserva/models/Ticket';
 
 export interface EstadoTicket {
     ticket: Ticket[];

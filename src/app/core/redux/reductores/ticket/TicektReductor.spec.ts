@@ -1,7 +1,5 @@
 import { EstadoTicket } from 'app/core/redux/modelo/EstadoTicket';
-import { Producto } from 'app/feature/Producto/models/Producto';
-import { Ticket } from 'app/feature/Ticket/models/Ticket';
-import { agregarNuevoProducto } from 'app/core/redux/acciones/productos/ProductosAcciones';
+import { Ticket } from 'app/feature/Reserva/models/Ticket';
 import { agregarNuevoTicket } from 'app/core/redux/acciones/Ticket/TicketAcciones';
 import reductorProductos from './ticketReductor';
 

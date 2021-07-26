@@ -5,7 +5,7 @@ import {
     TiposAccionesTicket,
 } from '../../acciones/Ticket/TicketTiposAcciones';
 import { EstadoTicket } from '../../modelo/EstadoTicket';
-import { Ticket } from 'app/feature/Ticket/models/Ticket';
+import { Ticket } from 'app/feature/Reserva/models/Ticket';
 
 const initialState: EstadoTicket = {
     ticket: Array<Ticket>(),

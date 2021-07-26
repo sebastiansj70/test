@@ -1,4 +1,4 @@
-import { Ticket } from '../../feature/Ticket/models/Ticket';
+import { Ticket } from '../../feature/Reserva/models/Ticket';
 import { axiosIntance } from '../config/AxiosConfig';
 
 export const TicketRepositorio = {
