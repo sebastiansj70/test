@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { Button } from 'app/shared/components/Button';
-import { Form, SpanError } from './styles';
+import { Form } from './styles';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
 import { Ticket } from '../../models/Ticket';
@@ -36,7 +36,7 @@ const validationSchema = Yup.object().shape<FormValues>({
     valor: Yup.number().required('El campo valor es requerido.'),
 });
 
-export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
+export const Formcrearticket: React.FC<FormCrearTicketProp> = ({
     onSubmit,
     handleListTicket,
     disabled,
@@ -128,7 +128,7 @@ export const FormCrearticket: React.FC<FormCrearTicketProp> = ({
 };
 
 
-FormCrearticket.propTypes = {
+Formcrearticket.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     formTitle: PropTypes.string.isRequired,
     disabled: PropTypes.bool,

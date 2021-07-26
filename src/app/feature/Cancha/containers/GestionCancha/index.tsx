@@ -2,12 +2,12 @@ import './styles.css';
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { AppBar, Tab } from '@material-ui/core';
+import { TabContext, TabList, TabPanel } from '@material-ui/lab';
+import { useEffect, useState } from 'react';
 import { Cancha } from '../../models/Cancha';
 import { ContentAppBar } from './styles';
 import { FormCrearCancha } from '../../components/FormCrearCancha';
 import { ListaCancha } from '../../components/ListarCanchas';
-import { TabContext, TabList, TabPanel } from '@material-ui/lab';
-import { useEffect, useState } from 'react';
 
 interface GestionCanchaProps {
     cancha: Array<Cancha>;
