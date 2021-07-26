@@ -2,9 +2,9 @@ import {
     ACTUALIZAR_CANCHAS,
     AGREGAR_CANCHAS,
     ELIMINAR_CANCHAS,
+    GUARDAR_CANCHA,
     LISTAR_CANCHAS,
-    TiposAccionesCanchas,
-    GUARDAR_CANCHA
+    TiposAccionesCanchas
 } from './CanchasTiposAcciones';
 import { Cancha } from 'app/feature/Cancha/models/Cancha';
 import { CanchaRepositorio } from 'app/core/api/cancha.repositorio';

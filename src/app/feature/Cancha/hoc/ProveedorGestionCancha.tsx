@@ -2,8 +2,8 @@ import {
     actualizarCanchaAsync,
     agregarCanchaAsync,
     eliminarCanchas,
-    listarCanchaAsync,
-    guardarCancha
+    guardarCancha,
+    listarCanchaAsync
 } from 'app/core/redux/acciones/cancha/CanchasAcciones';
 import { EstadoGeneral } from 'app/core/redux/modelo/EstadoGeneral';
 import { GestionCancha } from '../containers/GestionCancha';

@@ -45,8 +45,8 @@ export const GestionCancha: React.FC<GestionCanchaProps> = ({
     };
 
     const handleListTicket = () => {
-        setValue('1')
-    }
+        setValue('1');
+    };
 
     return (
         <ContentAppBar>
@@ -81,7 +81,11 @@ export const GestionCancha: React.FC<GestionCanchaProps> = ({
 GestionCancha.propTypes = {
     cancha: PropTypes.array.isRequired,
     agregarNuevaCancha: PropTypes.func.isRequired,
-    // eliminarTicket: PropTypes.func.isRequired,
     listarCanchas: PropTypes.func.isRequired,
-    // actualizarTicket: PropTypes.func.isRequired,
+    actualizarCancha: PropTypes.func.isRequired,
+    guardarCancha: PropTypes.func.isRequired,
+    canchaNew: PropTypes.shape({
+        idCancha: PropTypes.number.isRequired,
+        statusCancha: PropTypes.string.isRequired,
+    }).isRequired,
 };

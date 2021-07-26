@@ -48,11 +48,17 @@ export const ListaCancha: React.FC<ListaCanchaProps> = ({
             {
                 cancha.map((cancha: Cancha) => {
                     return (
-                        <CardCancha
+                        <div
+                            id={'canchaList'}
                             key={Math.random()}
-                            idCancha={cancha.idCancha}
-                            statusCancha={cancha.statusCancha}
-                        />
+                            onClick={() => handleOpen(cancha)}
+                        >
+                            <CardCancha
+                                key={Math.random()}
+                                idCancha={cancha.idCancha}
+                                statusCancha={cancha.statusCancha}
+                            />
+                        </div>
                     );
                 })
             }
@@ -83,4 +89,10 @@ export const ListaCancha: React.FC<ListaCanchaProps> = ({
 
 ListaCancha.propTypes = {
     cancha: PropTypes.array.isRequired,
+    canchaNew: PropTypes.shape({
+        idCancha: PropTypes.number.isRequired,
+        statusCancha: PropTypes.string.isRequired,
+    }).isRequired,
+    actualizarCancha: PropTypes.func.isRequired,
+    guardarCancha: PropTypes.func.isRequired,
 };

@@ -40,8 +40,8 @@ export const GestionTicket: React.FC<GestionTicketProps> = ({
     };
 
     const handleListTicket = () => {
-        setValue('1')
-    }
+        setValue('1');
+    };
     
     return (
         <ContentAppBar>

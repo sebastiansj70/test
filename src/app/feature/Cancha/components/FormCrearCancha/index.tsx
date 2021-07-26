@@ -33,13 +33,13 @@ const validationSchema = Yup.object().shape<FormValues>({
 
 export const FormCrearCancha: React.FC<FormCrearCanchaProp> = (({
     onSubmit,
+    handleListTicket,
     disabled,
     formTitle,
     initialValues = {
         idCancha: 321,
         statusCancha: '',
     },
-    handleListTicket,
 }) => {
     const handleSubmit = (
         values: FormValues,
@@ -99,4 +99,5 @@ FormCrearCancha.propTypes = {
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
     }),
+    handleListTicket: PropTypes.func.isRequired,
 };
