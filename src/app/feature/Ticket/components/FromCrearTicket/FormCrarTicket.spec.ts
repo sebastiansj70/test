@@ -17,8 +17,8 @@ describe('FormCrearProducto test', () => {
             formTitle: 'Crear producto',
             handleListTicket: stub(),
         };
-        componentWrapper = render(<FormCrearTicket { ...componentProps } />);
-        // const component = render(<FormCrearTicket { ...componentProps } />)
+        // componentWrapper = render(<FormCrearTicket { ...componentProps } />);
+        // const component = render(<FormCrearTicket { ...  } />)
         // console.log(component)
 
 
