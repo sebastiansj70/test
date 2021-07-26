@@ -15,7 +15,7 @@ interface FormValues {
 }
 
 
-interface ActualizarCanchaProps {
+interface actualizarCanchaProps {
     onSubmit: (idCancha: number, payload: Cancha) => void;
     formTitle: string;
     cancha: Cancha;
@@ -29,8 +29,7 @@ const validationSchema = Yup.object().shape<FormValues>({
 
 });
 
-export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
-    // onEliminar,
+export const ActualizarCancha: React.FC<actualizarCanchaProps> = ({
     onSubmit,
     handleShow,
     cancha,
@@ -73,17 +72,14 @@ export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
                 type='number'
                 value={formik.values.idCancha}
             />
-
             <Input
                 placeholder=''
                 name='statusCancha'
                 onChange={formik.handleChange}
                 value={formik.values.statusCancha}
-
             />
             <Button type="submit" name="Actualizar">Actualizar</Button>
         </Form>
-
     );
 };
 
@@ -100,5 +96,4 @@ ActualizarCancha.propTypes = {
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
     }),
-    // onEliminar: PropTypes.func.isRequired,
 };
