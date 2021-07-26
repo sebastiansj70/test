@@ -2,8 +2,8 @@ import { Ticket } from '../../feature/Ticket/models/Ticket';
 import { axiosIntance } from '../config/AxiosConfig';
 
 export const TicketRepositorio = {
-    consultarTickets: () =>
-        axiosIntance.get('/ticket/listar'),
+    consultarTickets: async () =>
+        await axiosIntance.get('/ticket/listar'),
 
 
     AgregarTicket: async(ticket: Ticket) => {

@@ -7,15 +7,17 @@ import { setTextEvent } from 'app/shared/utils/test';
 describe('FormCrearProducto test', () => {
     let componentWrapper: RenderResult;
     let componentProps: React.ComponentProps<typeof FormCrearTicket> & {
-        onSubmit: SinonStub;
+        onSubmit: SinonStub,
+        handleListTicket: SinonStub;
     };
 
     beforeEach(() => {
-        // componentProps = {
-        //     onSubmit: stub(),
-        //     formTitle: 'Crear producto',
-        // };
-        // componentWrapper = render(<FormCrearTicket {...componentProps}/>);
+        componentProps = {
+            onSubmit: stub(),
+            formTitle: 'Crear producto',
+            handleListTicket: stub(),
+        };
+        componentWrapper = render(<FormCrearTicket { ...componentProps } />);
         // const component = render(<FormCrearTicket { ...componentProps } />)
         // console.log(component)
 

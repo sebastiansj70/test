@@ -16,4 +16,17 @@ describe('Cancha', () => {
         cy.get('input[name="statusCancha"]').type('Buena')
         cy.contains('Registrar').click()
     })
+
+
+    it('update cancha', () => {
+        cy.contains('Canchas').click()
+        cy.get('div[id="canchaList"]').first().click()
+        cy.get('input[name="statusCancha"]').clear()
+        cy.get('input[name="statusCancha"]').type('Malo')
+        cy.get('button[name="Actualizar"]').click()
+        cy.get('div[id="canchaList"]').last().click()
+        cy.get('input[name="statusCancha"]').clear()
+        cy.get('input[name="statusCancha"]').type('bueno')
+        cy.get('button[name="Actualizar"]').click()
+    })
 })
