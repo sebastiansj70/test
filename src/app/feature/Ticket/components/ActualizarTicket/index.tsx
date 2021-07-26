@@ -26,7 +26,7 @@ interface ActualizarTicketProps {
     formTitle: string;
     ticket: Ticket;
     initialValues?: FormValues;
-    handleShow: (show: boolean) => void;
+    handleShow: () => void;
 
 }
 const validationSchema = Yup.object().shape<FormValues>({
@@ -70,8 +70,8 @@ export const ActualizarTicket: React.FC<ActualizarTicketProps> = ({
             idCancha: values.idCancha,
             valor: values.valor,
         });
-        handleShow(false);
         resetForm();
+        handleShow();
     };
     const formik = useFormik({
         initialValues,
@@ -135,7 +135,7 @@ export const ActualizarTicket: React.FC<ActualizarTicketProps> = ({
                 value={formik.values.valor}
                 readOnly={false}
             />
-            <Button type="submit">Actualizar</Button>
+            <Button type="submit" name="Actualizar">Actualizar</Button>
         </Form>
 
     );

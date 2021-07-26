@@ -2,11 +2,10 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { Button } from 'app/shared/components/Button';
-import { Cancha } from '../../models/Cancha';
 import { Form } from './styles';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
-import { SpanError } from './styles';
+import { Cancha } from '../../models/Cancha';
 import { Tittle } from 'app/shared/components/Tittle';
 import { useFormik } from 'formik';
 
@@ -15,44 +14,45 @@ interface FormValues {
     statusCancha: string;
 }
 
-interface FormCrearCanchaProp {
-    onSubmit: (payload: Cancha) => any;
-    disabled?: boolean;
+
+interface ActualizarCanchaProps {
+    onSubmit: (idCancha: number, payload: Cancha) => any;
     formTitle: string;
+    cancha: Cancha;
     initialValues?: FormValues;
-    handleListTicket: () => void;
+    handleShow: () => void;
 
 }
-
-
 const validationSchema = Yup.object().shape<FormValues>({
-    idCancha: Yup.number().required('El campo id cancha es requerido.'),
-    statusCancha: Yup.string().required('El campo status Cancha es requerido.'),
+    idCancha: Yup.number().required('El campo numero de cancha es requerido.'),
+    statusCancha: Yup.string().required('El campo stado de cancha es requerido.'),
+
 });
 
-
-export const FormCrearCancha: React.FC<FormCrearCanchaProp> = (({
+export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
+    // onEliminar,
     onSubmit,
-    disabled,
+    handleShow,
+    cancha,
     formTitle,
     initialValues = {
-        idCancha: 321,
-        statusCancha: '',
+        idCancha: cancha.idCancha,
+        statusCancha: cancha.statusCancha,
     },
-    handleListTicket,
+
 }) => {
+    // const handleEliminar = () => onEliminar(ticket);
     const handleSubmit = (
         values: FormValues,
         { resetForm }: FormikHelpers<FormValues>
     ) => {
-        onSubmit({
+        onSubmit(values.idCancha, {
             idCancha: values.idCancha,
             statusCancha: values.statusCancha,
         });
-        handleListTicket();
         resetForm();
+        handleShow();
     };
-
     const formik = useFormik({
         initialValues,
         validationSchema,
@@ -60,43 +60,46 @@ export const FormCrearCancha: React.FC<FormCrearCanchaProp> = (({
     });
 
 
+
     return (
-        <Form onSubmit={formik.handleSubmit} >
+
+        <Form onSubmit={formik.handleSubmit}>
             <Tittle
                 msg={formTitle}
             />
             <Input
-                disabled={disabled}
-                placeholder='Número de cancha'
+                placeholder=''
                 name='idCancha'
                 onChange={formik.handleChange}
                 type='number'
+                value={formik.values.idCancha}
             />
-            {formik.touched.idCancha && formik.errors.idCancha && (
-                <SpanError>{formik.errors.idCancha}</SpanError>
-            )}
+
             <Input
-                disabled={disabled}
-                placeholder='Estado de la cancha'
+                placeholder=''
                 name='statusCancha'
                 onChange={formik.handleChange}
+                value={formik.values.statusCancha}
+
             />
-            {formik.touched.statusCancha && formik.errors.statusCancha && (
-                <SpanError>{formik.errors.statusCancha}</SpanError>
-            )}
-            <Button type='submit'>Registrar</Button>
+            <Button type="submit" name="Actualizar">Actualizar</Button>
         </Form>
+
     );
-});
+};
 
-
-
-FormCrearCancha.propTypes = {
+ActualizarCancha.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     formTitle: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
+    cancha: PropTypes.shape({
+        idCancha: PropTypes.number.isRequired,
+        statusCancha: PropTypes.string.isRequired,
+
+    }).isRequired,
+    handleShow: PropTypes.func.isRequired,
     initialValues: PropTypes.shape({
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
     }),
+    // onEliminar: PropTypes.func.isRequired,
 };

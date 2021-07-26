@@ -29,7 +29,6 @@
         "test:coverage": "react-scripts test --watchAll=false --coverage",
         "lint": "eslint --fix src/**/*.{ts,tsx}",
         "cypress:open": "cypress open"
-
     },
     "eslintConfig": {
         "extends": "react-app"

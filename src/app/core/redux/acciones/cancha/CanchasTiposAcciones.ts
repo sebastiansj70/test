@@ -4,6 +4,7 @@ export const LISTAR_CANCHAS = 'LISTAR_CANCHAS';
 export const AGREGAR_CANCHAS = 'AGREGAR_CANCHAS';
 export const ELIMINAR_CANCHAS = 'ELIMINAR_CANCHAS';
 export const ACTUALIZAR_CANCHAS = 'ACTUALIZAR_CANCHAS';
+export const GUARDAR_CANCHA = 'GUARDAR_CANCHA';
 
 interface AccionListarCanchas {
     type: typeof LISTAR_CANCHAS;
@@ -25,8 +26,14 @@ interface AcctionActualizarCancha {
     payload: Cancha;
 }
 
+interface AcctionGuardarCancha {
+    type: typeof GUARDAR_CANCHA;
+    payload: Cancha;
+}
+
 export type TiposAccionesCanchas =
     | AccionListarCanchas
     | AccionAgregarCancha
     | AccionEliminarCancha
-    | AcctionActualizarCancha;
+    | AcctionActualizarCancha
+    | AcctionGuardarCancha;

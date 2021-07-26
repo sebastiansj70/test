@@ -14,5 +14,15 @@ export const CanchaRepositorio = {
             }, (error) => {
                 console.log(error);
             });
+    },
+
+    actualizarCancha: async (idCancha: number, cancha: Cancha) => {
+        await axiosIntance.put(`/cancha/actualizar/${idCancha}`,
+            JSON.stringify(cancha)
+            , {}).then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
     }
 };

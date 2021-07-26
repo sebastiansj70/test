@@ -1,5 +1,6 @@
 import {
     AGREGAR_CANCHAS,
+    GUARDAR_CANCHA,
     LISTAR_CANCHAS,
     TiposAccionesCanchas,
 } from '../../acciones/cancha/CanchasTiposAcciones';
@@ -7,7 +8,11 @@ import { Cancha } from 'app/feature/Cancha/models/Cancha';
 import { EstadoCancha } from '../../modelo/EstadoCancha';
 
 const initialState: EstadoCancha = {
-    cancha: Array<Cancha>()
+    cancha: Array<Cancha>(),
+    canchaNew: {
+        idCancha: 1,
+        statusCancha: ''
+    },
 };
 
 export default function (
@@ -25,6 +30,12 @@ export default function (
             return {
                 ...state,
                 cancha: [...state.cancha, cancha]
+            };
+        }
+        case GUARDAR_CANCHA: {
+            return {
+                ...state,
+                canchaNew: action.payload
             };
         }
         default:

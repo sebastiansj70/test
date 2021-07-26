@@ -4,6 +4,7 @@ import {
     ELIMINAR_CANCHAS,
     LISTAR_CANCHAS,
     TiposAccionesCanchas,
+    GUARDAR_CANCHA
 } from './CanchasTiposAcciones';
 import { Cancha } from 'app/feature/Cancha/models/Cancha';
 import { CanchaRepositorio } from 'app/core/api/cancha.repositorio';
@@ -60,5 +61,23 @@ export function agregarCanchaAsync(cancha: Cancha) {
         CanchaRepositorio.AgregarCancha(
             cancha
         );
+    };
+}
+
+export function actualizarCanchaAsync(idCancha: number, cancha: Cancha) {
+    return function () {
+        CanchaRepositorio.actualizarCancha(
+            idCancha, cancha
+        );
+    };
+}
+
+
+export function guardarCancha(
+    cancha: Cancha
+): TiposAccionesCanchas {
+    return {
+        type: GUARDAR_CANCHA,
+        payload: cancha
     };
 }

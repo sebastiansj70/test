@@ -1,11 +1,11 @@
 import {
-    actualizarTicket,
+    actualizarCanchaAsync,
     agregarCanchaAsync,
     eliminarCanchas,
-    listarCanchaAsync
+    listarCanchaAsync,
+    guardarCancha
 } from 'app/core/redux/acciones/cancha/CanchasAcciones';
 import { EstadoGeneral } from 'app/core/redux/modelo/EstadoGeneral';
-// import { GestionTicket } from '../containers/GestionTicket';
 import { GestionCancha } from '../containers/GestionCancha';
 
 import { connect } from 'react-redux';
@@ -20,5 +20,6 @@ export const ProveedorGestionCancha = connect(mapStateToProps, {
     agregarNuevaCancha: agregarCanchaAsync,
     eliminarCanchas,
     listarCanchas: listarCanchaAsync,
-    actualizarTicket,
+    actualizarCancha: actualizarCanchaAsync,
+    guardarCancha,
 })(GestionCancha);

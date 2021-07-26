@@ -24,7 +24,7 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
 }) => {
 
     useEffect(() => {
-    }, [guardarTicket]);
+    }, [actualizarTicket]);
 
 
     const [open, setOpen] = React.useState(false);
@@ -51,6 +51,7 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
                 tickets.map((ticket: Ticket) => {
                     return (
                         <div
+                            id={'ticketsList'}
                             key={Math.random()}
                             onClick={() => handleOpen(ticket)}
                         >
@@ -81,7 +82,7 @@ export const ListaTickets: React.FC<ListaTicketsProps> = ({
                             ticket={ticketNew}
                             formTitle='Actualizar Ticket'
                             onSubmit={actualizarTicket}
-                            handleShow={handleShow}
+                            handleShow={handleClose}
                         />
                     </div>
                 </Modal>

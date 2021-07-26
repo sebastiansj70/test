@@ -16,19 +16,22 @@ import { useState } from 'react';
 
 interface GestionCanchaProps {
     cancha: Array<Cancha>;
+    canchaNew: Cancha;
     agregarNuevaCancha: (cancha: Cancha) => void;
-    // eliminarTicket: (ticket: Ticket) => void;
     listarCanchas: () => void;
-    // actualizarTicket: (ticket: Ticket) => void;
+    actualizarCancha: (idCancha: number, cancha: Cancha) => void;
+    guardarCancha: (cancha: Cancha) => void;
+
 }
 
 
 export const GestionCancha: React.FC<GestionCanchaProps> = ({
     cancha,
+    canchaNew,
     agregarNuevaCancha,
-    // eliminarTicket,
     listarCanchas,
-    // actualizarTicket
+    actualizarCancha,
+    guardarCancha
 }) => {
 
     const [value, setValue] = useState('2');
@@ -41,6 +44,10 @@ export const GestionCancha: React.FC<GestionCanchaProps> = ({
         setValue(newValue);
     };
 
+    const handleListTicket = () => {
+        setValue('1')
+    }
+
     return (
         <ContentAppBar>
             <TabContext value={value} >
@@ -52,13 +59,17 @@ export const GestionCancha: React.FC<GestionCanchaProps> = ({
                 </AppBar >
                 <TabPanel value='1'>
                     <ListaCancha
+                        canchaNew={canchaNew}
                         cancha={cancha}
+                        actualizarCancha={actualizarCancha}
+                        guardarCancha={guardarCancha}
                     />
                 </TabPanel>
                 <TabPanel value='2'>
                     <FormCrearCancha
                         onSubmit={agregarNuevaCancha}
                         formTitle='Crear Cancha'
+                        handleListTicket={handleListTicket}
                     />
                 </TabPanel>
             </TabContext>

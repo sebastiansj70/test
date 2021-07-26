@@ -6,9 +6,9 @@ export const TicketRepositorio = {
         axiosIntance.get('/ticket/listar'),
 
 
-    AgregarTicket: (ticket: Ticket) => {
+    AgregarTicket: async(ticket: Ticket) => {
 
-        axiosIntance.post('/ticket',
+        await axiosIntance.post('/ticket',
             JSON.stringify(ticket)
             , {}).then((response) => {
                 console.log(response);
@@ -17,8 +17,8 @@ export const TicketRepositorio = {
             });
     },
 
-    actualizarTicket: (idTicket: number, ticket: Ticket) => {
-        axiosIntance.put(`/ticket/actualizar/${idTicket}`,
+    actualizarTicket: async (idTicket: number, ticket: Ticket) => {
+        await axiosIntance.put(`/ticket/actualizar/${idTicket}`,
             JSON.stringify(ticket)
             , {}).then((response) => {
                 console.log(response);

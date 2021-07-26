@@ -39,6 +39,10 @@ export const GestionTicket: React.FC<GestionTicketProps> = ({
         setValue(newValue);
     };
 
+    const handleListTicket = () => {
+        setValue('1')
+    }
+    
     return (
         <ContentAppBar>
             <TabContext value={value} >
@@ -60,6 +64,7 @@ export const GestionTicket: React.FC<GestionTicketProps> = ({
                     <FormCrearTicket
                         onSubmit={agregarNuevoTicket}
                         formTitle='Crear Ticket'
+                        handleListTicket={handleListTicket}
                     />
                 </TabPanel>
             </TabContext>
