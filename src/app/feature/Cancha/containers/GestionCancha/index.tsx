@@ -70,7 +70,6 @@ export const GestionCancha: React.FC<GestionCanchaProps> = ({
     );
 };
 
-
 GestionCancha.propTypes = {
     cancha: PropTypes.array.isRequired,
     agregarNuevaCancha: PropTypes.func.isRequired,
@@ -81,4 +80,4 @@ GestionCancha.propTypes = {
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
     }).isRequired
-}
+};

@@ -100,4 +100,4 @@ ListaTickets.propTypes = {
         valor: PropTypes.number.isRequired,
     }).isRequired,
     actualizarTicket: PropTypes.func.isRequired
-}
+};

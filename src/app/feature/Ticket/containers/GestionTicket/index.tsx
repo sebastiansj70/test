@@ -86,4 +86,4 @@ GestionTicket.propTypes = {
         idCancha: PropTypes.number.isRequired,
         valor: PropTypes.number.isRequired,
     }).isRequired
-}
+};
