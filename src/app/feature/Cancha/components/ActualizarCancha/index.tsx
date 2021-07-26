@@ -15,7 +15,7 @@ interface FormValues {
 }
 
 
-interface actualizarCanchaProps {
+interface ActualizarCanchaProps {
     onSubmit: (idCancha: number, payload: Cancha) => void;
     formTitle: string;
     cancha: Cancha;
@@ -29,7 +29,7 @@ const validationSchema = Yup.object().shape<FormValues>({
 
 });
 
-export const ActualizarCancha: React.FC<actualizarCanchaProps> = ({
+export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
     onSubmit,
     handleShow,
     cancha,
