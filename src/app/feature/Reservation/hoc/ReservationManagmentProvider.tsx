@@ -1,11 +1,11 @@
 import {
-    updateReservationsAsync,
     addReservationAsync,
+    reservationListAsync,
     saveReservation,
-    reservationListAsync
+    updateReservationsAsync
 } from 'app/core/redux/acciones/Reservation/ReservationActions';
-import { StatusGeneral } from 'app/core/redux/modelo/StatusGeneral';
 import { ReservationManagment } from '../containers/ReservationManagement';
+import { StatusGeneral } from 'app/core/redux/modelo/StatusGeneral';
 
 import { connect } from 'react-redux';
 

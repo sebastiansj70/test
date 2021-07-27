@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@material-ui/lab';
 import { ContentAppBar } from './styles';
 import { CreateReservationForm } from '../../components/CreateReservationForm';
-import { ReservationList } from '../../components/ListResevations';
 import { Reservation } from '../../models/Reservation';
+import { ReservationList } from '../../components/ListResevations';
 
 interface ReservationManagmentProps {
     reservationLists: Array<Reservation>;

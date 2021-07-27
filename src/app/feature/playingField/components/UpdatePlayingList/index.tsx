@@ -2,10 +2,10 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { Button } from 'app/shared/components/Button';
-import { PlayingField } from '../../models/PlayingField';
 import { Form } from './styles';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
+import { PlayingField } from '../../models/PlayingField';
 import { Tittle } from 'app/shared/components/Tittle';
 import { useFormik } from 'formik';
 

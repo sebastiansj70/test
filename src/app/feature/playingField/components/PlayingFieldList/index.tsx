@@ -1,11 +1,11 @@
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { UpdatePlayingList } from '../UpdatePlayingList';
-import { PlayingField } from '../../models/PlayingField';
 import { CardCancha } from '../Card';
 import { ContentCard } from './styles';
 import Modal from '@material-ui/core/Modal';
+import { PlayingField } from '../../models/PlayingField';
 import { Tittle } from '../../../../shared/components/Tittle';
+import { UpdatePlayingList } from '../UpdatePlayingList';
 
 
 export interface PlayingFieldListProps {

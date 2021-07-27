@@ -1,12 +1,12 @@
 import {
-    updatePlayingFieldAsync,
     addPlatingFieldAsync,
     deletePlayingField,
+    playingFieldListAsync,
     savePalyingField,
-    playingFieldListAsync
+    updatePlayingFieldAsync
 } from 'app/core/redux/acciones/playingField/PlayingFieldAction';
-import { StatusGeneral } from 'app/core/redux/modelo/StatusGeneral';
 import { PlayingListoManagment } from '../containers/PlayinFieldManagment';
+import { StatusGeneral } from 'app/core/redux/modelo/StatusGeneral';
 
 import { connect } from 'react-redux';
 

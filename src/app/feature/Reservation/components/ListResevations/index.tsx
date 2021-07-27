@@ -1,11 +1,11 @@
-import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { UpdateReservation } from '../UpdateReservation';
 import { CardTicket } from '../Card';
 import { DivContent } from './styles';
 import Modal from '@material-ui/core/Modal';
+import PropTypes from 'prop-types';
 import { Reservation } from '../../models/Reservation';
 import { Tittle } from 'app/shared/components/Tittle';
+import { UpdateReservation } from '../UpdateReservation';
 
 
 export interface ReservationListProps {

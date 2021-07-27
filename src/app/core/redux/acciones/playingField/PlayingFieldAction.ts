@@ -1,10 +1,10 @@
 import {
-    UPDATE_PLAYING_FIELD,
     ADD_PLAYING_FIELD,
     DELETE_PLAYING_FIELD,
-    SAVE_PLAYING_FIELD,
     PLAYING_FIELD_LIST,
-    PlayingListActionsTypes
+    PlayingListActionsTypes,
+    SAVE_PLAYING_FIELD,
+    UPDATE_PLAYING_FIELD
 } from './PlayingFieldActionsTypes';
 import { PlayingField } from 'app/feature/playingField/models/PlayingField';
 import { PlayingFieldRepository } from 'app/core/api/playingField.repository';

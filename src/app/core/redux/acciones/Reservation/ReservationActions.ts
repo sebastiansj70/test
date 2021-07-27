@@ -1,11 +1,11 @@
 import {
-    RESERVATION_LIST,
     ADD_RESERVATION,
     DELETE_RESERVATION,
-    UPDATE_RESERVATION,
-    SAVE_RESERVATION,
     GET_RESERVATION,
-    ReservationActionTypes
+    RESERVATION_LIST,
+    ReservationActionTypes,
+    SAVE_RESERVATION,
+    UPDATE_RESERVATION
 } from './ReservationActionTypes';
 import { Reservation } from 'app/feature/Reservation/models/Reservation';
 import { ReservationRepository } from 'app/core/api/reservation.repository';

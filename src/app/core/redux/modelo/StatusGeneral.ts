@@ -1,5 +1,5 @@
-import { StatusPlayinField } from './StatusPlayingField';
 import { EstadoProducto } from './EstadoProducto';
+import { StatusPlayinField } from './StatusPlayingField';
 import { StatusReservation } from './StatusReservation';
 
 export interface StatusGeneral {

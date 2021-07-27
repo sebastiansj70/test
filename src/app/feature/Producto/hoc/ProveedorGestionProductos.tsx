@@ -3,8 +3,8 @@ import {
   eliminarProducto,
   listarProductosAsync,
 } from 'app/core/redux/acciones/productos/ProductosAcciones';
-import { StatusGeneral } from 'app/core/redux/modelo/StatusGeneral';
 import { GestionProductos } from '../containers/GestionProductos';
+import { StatusGeneral } from 'app/core/redux/modelo/StatusGeneral';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state: StatusGeneral) => {

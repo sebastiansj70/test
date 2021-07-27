@@ -1,11 +1,11 @@
 import {
     ADD_RESERVATION,
-    SAVE_RESERVATION,
     RESERVATION_LIST,
     ReservationActionTypes,
+    SAVE_RESERVATION,
 } from '../../acciones/Reservation/ReservationActionTypes';
-import { StatusReservation } from '../../modelo/StatusReservation';
 import { Reservation } from 'app/feature/Reservation/models/Reservation';
+import { StatusReservation } from '../../modelo/StatusReservation';
 
 const initialState: StatusReservation = {
     reservationLists: Array<Reservation>(),

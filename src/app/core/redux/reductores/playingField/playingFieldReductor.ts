@@ -1,8 +1,8 @@
 import {
     ADD_PLAYING_FIELD,
-    SAVE_PLAYING_FIELD,
     PLAYING_FIELD_LIST,
     PlayingListActionsTypes,
+    SAVE_PLAYING_FIELD,
 } from '../../acciones/playingField/PlayingFieldActionsTypes';
 import { PlayingField } from 'app/feature/playingField/models/PlayingField';
 import { StatusPlayinField } from '../../modelo/StatusPlayingField';

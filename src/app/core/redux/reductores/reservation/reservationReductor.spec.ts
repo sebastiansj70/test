@@ -1,5 +1,5 @@
-import { StatusReservation } from 'app/core/redux/modelo/StatusReservation';
 import { Reservation } from 'app/feature/Reservation/models/Reservation';
+import { StatusReservation } from 'app/core/redux/modelo/StatusReservation';
 import { addNewReservation } from 'app/core/redux/acciones/Reservation/ReservationActions';
 import reductorProductos from './reservationReductor';
 
