@@ -5,7 +5,7 @@ import {
     savePalyingField,
     playingFieldListAsync
 } from 'app/core/redux/acciones/playingField/PlayingFieldAction';
-import { StatusGeneral } from 'app/core/redux/modelo/EstadoGeneral';
+import { StatusGeneral } from 'app/core/redux/modelo/StatusGeneral';
 import { PlayingListoManagment } from '../containers/PlayinFieldManagment';
 
 import { connect } from 'react-redux';
