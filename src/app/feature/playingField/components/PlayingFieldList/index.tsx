@@ -1,40 +1,40 @@
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { ActualizarCancha } from '../ActualizarCancha';
-import { Cancha } from '../../models/Cancha';
+import { UpdatePlayingList } from '../UpdatePlayingList';
+import { PlayingField } from '../../models/PlayingField';
 import { CardCancha } from '../Card';
 import { ContentCard } from './styles';
 import Modal from '@material-ui/core/Modal';
 import { Tittle } from '../../../../shared/components/Tittle';
 
 
-export interface ListaCanchaProps {
-    cancha: Array<Cancha>;
-    canchaNew: Cancha,
-    actualizarCancha: (idCancha: number, cancha: Cancha) => void;
-    guardarCancha: (cancha: Cancha) => void;
+export interface PlayingFieldListProps {
+    playingFieldLists: Array<PlayingField>;
+    playingField: PlayingField,
+    updatePlayingField: (idplayingField: number, playingField: PlayingField) => void;
+    savePalyingField: (playingField: PlayingField) => void;
 }
 
-export const ListaCancha: React.FC<ListaCanchaProps> = ({
-    cancha,
-    canchaNew,
-    actualizarCancha,
-    guardarCancha
+export const PlayingFieldList: React.FC<PlayingFieldListProps> = ({
+    playingFieldLists,
+    playingField,
+    updatePlayingField,
+    savePalyingField
 }) => {
 
     useEffect(() => {
-    }, [actualizarCancha]);
+    }, [updatePlayingField]);
 
 
     const [open, setOpen] = React.useState(false);
 
-    const handleOpen = (canchae: Cancha) => {
-        guardarCancha(canchae);
+    const handleOpenModal = (playingField: PlayingField) => {
+        savePalyingField(playingField);
         setOpen(true);
     };
 
 
-    const handleClose = () => {
+    const handleCloseModal = () => {
         setOpen(false);
     };
 
@@ -42,20 +42,20 @@ export const ListaCancha: React.FC<ListaCanchaProps> = ({
     return (
         <ContentCard>
             <Tittle
-                msg='Lista de canchas'
+                msg='Lista de campos de juego'
             />
             {
-                cancha.map((cancha: Cancha) => {
+                playingFieldLists.map((playingField: PlayingField) => {
                     return (
                         <div
                             id={'canchaList'}
                             key={Math.random()}
-                            onClick={() => handleOpen(cancha)}
+                            onClick={() => handleOpenModal(playingField)}
                         >
                             <CardCancha
                                 key={Math.random()}
-                                idCancha={cancha.idCancha}
-                                statusCancha={cancha.statusCancha}
+                                idCancha={playingField.idCancha}
+                                statusCancha={playingField.statusCancha}
                             />
                         </div>
                     );
@@ -66,17 +66,17 @@ export const ListaCancha: React.FC<ListaCanchaProps> = ({
 
                 <Modal
                     open={open}
-                    onClose={handleClose}
+                    onClose={handleCloseModal}
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
                     style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}
                 >
                     <div style={{ background: '#FFF', width: '80vmin', padding: '4vmin', borderRadius: '2vmin' }}>
-                        <ActualizarCancha
-                            cancha={canchaNew}
+                        <UpdatePlayingList
+                            playingField={playingField}
                             formTitle='Actualizar Ticket'
-                            onSubmit={actualizarCancha}
-                            handleShow={handleClose}
+                            onSubmit={updatePlayingField}
+                            handleCloseModal={handleCloseModal}
                         />
                     </div>
                 </Modal>
@@ -86,12 +86,12 @@ export const ListaCancha: React.FC<ListaCanchaProps> = ({
     );
 };
 
-ListaCancha.propTypes = {
-    cancha: PropTypes.array.isRequired,
-    canchaNew: PropTypes.shape({
+PlayingFieldList.propTypes = {
+    playingFieldLists: PropTypes.array.isRequired,
+    playingField: PropTypes.shape({
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
     }).isRequired,
-    actualizarCancha: PropTypes.func.isRequired,
-    guardarCancha: PropTypes.func.isRequired,
+    updatePlayingField: PropTypes.func.isRequired,
+    savePalyingField: PropTypes.func.isRequired,
 };

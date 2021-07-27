@@ -1,9 +1,9 @@
-import { EstadoCancha } from './EstadoCancha';
+import { StatusPlayinField } from './StatusPlayingField';
 import { EstadoProducto } from './EstadoProducto';
 import { StatusReservation } from './StatusReservation';
 
-export interface EstadoGeneral {
+export interface StatusGeneral {
   productos: EstadoProducto;
   reservation: StatusReservation;
-  cancha: EstadoCancha;
+  playingField: StatusPlayinField;
 }

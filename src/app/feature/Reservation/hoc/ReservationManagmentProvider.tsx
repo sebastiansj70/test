@@ -4,13 +4,13 @@ import {
     saveReservation,
     reservationListAsync
 } from 'app/core/redux/acciones/Reservation/ReservationActions';
-import { EstadoGeneral } from 'app/core/redux/modelo/EstadoGeneral';
+import { StatusGeneral } from 'app/core/redux/modelo/EstadoGeneral';
 import { ReservationManagment } from '../containers/ReservationManagement';
 
 import { connect } from 'react-redux';
 
 
-const mapStateToProps = (state: EstadoGeneral) => {
+const mapStateToProps = (state: StatusGeneral) => {
     return state.reservation;
 };
 

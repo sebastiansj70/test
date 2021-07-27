@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as Yup from 'yup';
 import { Form, SpanError } from './styles';
 import { Button } from 'app/shared/components/Button';
-import { Cancha } from '../../models/Cancha';
+import { PlayingField } from '../../models/PlayingField';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
 import { Tittle } from 'app/shared/components/Tittle';
@@ -14,8 +14,8 @@ interface FormValues {
     statusCancha: string;
 }
 
-interface FormCrearCanchaProp {
-    onSubmit: (payload: Cancha) => any;
+interface PlayingFieldFormProp {
+    onSubmit: (payload: PlayingField) => any;
     disabled?: boolean;
     formTitle: string;
     initialValues?: FormValues;
@@ -30,7 +30,7 @@ const validationSchema = Yup.object().shape<FormValues>({
 });
 
 
-export const FormCrearCancha: React.FC<FormCrearCanchaProp> = (({
+export const PlayingFieldForm: React.FC<PlayingFieldFormProp> = (({
     onSubmit,
     handleListTicket,
     disabled,
@@ -90,7 +90,7 @@ export const FormCrearCancha: React.FC<FormCrearCanchaProp> = (({
 
 
 
-FormCrearCancha.propTypes = {
+PlayingFieldForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     formTitle: PropTypes.string.isRequired,
     disabled: PropTypes.bool,

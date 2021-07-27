@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as Yup from 'yup';
 import { Button } from 'app/shared/components/Button';
-import { Cancha } from '../../models/Cancha';
+import { PlayingField } from '../../models/PlayingField';
 import { Form } from './styles';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
@@ -15,12 +15,12 @@ interface FormValues {
 }
 
 
-interface ActualizarCanchaProps {
-    onSubmit: (idCancha: number, payload: Cancha) => void;
+interface UpdatePlayingListProps {
+    onSubmit: (idCancha: number, payload: PlayingField) => void;
     formTitle: string;
-    cancha: Cancha;
+    playingField: PlayingField;
     initialValues?: FormValues;
-    handleShow: () => void;
+    handleCloseModal: () => void;
 
 }
 const validationSchema = Yup.object().shape<FormValues>({
@@ -29,14 +29,14 @@ const validationSchema = Yup.object().shape<FormValues>({
 
 });
 
-export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
+export const UpdatePlayingList: React.FC<UpdatePlayingListProps> = ({
     onSubmit,
-    handleShow,
-    cancha,
+    handleCloseModal,
+    playingField,
     formTitle,
     initialValues = {
-        idCancha: cancha.idCancha,
-        statusCancha: cancha.statusCancha,
+        idCancha: playingField.idCancha,
+        statusCancha: playingField.statusCancha,
     },
 
 }) => {
@@ -49,7 +49,7 @@ export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
             statusCancha: values.statusCancha,
         });
         resetForm();
-        handleShow();
+        handleCloseModal();
     };
     const formik = useFormik({
         initialValues,
@@ -57,10 +57,7 @@ export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
         onSubmit: handleSubmit,
     });
 
-
-
     return (
-
         <Form onSubmit={formik.handleSubmit}>
             <Tittle
                 msg={formTitle}
@@ -83,15 +80,15 @@ export const ActualizarCancha: React.FC<ActualizarCanchaProps> = ({
     );
 };
 
-ActualizarCancha.propTypes = {
+UpdatePlayingList.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     formTitle: PropTypes.string.isRequired,
-    cancha: PropTypes.shape({
+    playingField: PropTypes.shape({
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
 
     }).isRequired,
-    handleShow: PropTypes.func.isRequired,
+    handleCloseModal: PropTypes.func.isRequired,
     initialValues: PropTypes.shape({
         idCancha: PropTypes.number.isRequired,
         statusCancha: PropTypes.string.isRequired,
