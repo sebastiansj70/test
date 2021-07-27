@@ -1,0 +1,89 @@
+import './styles.css';
+import * as PropTypes from 'prop-types';
+import { AppBar, Tab } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { TabContext, TabList, TabPanel } from '@material-ui/lab';
+import { ContentAppBar } from './styles';
+import { CreateReservationForm } from '../../components/CreateReservationForm';
+import { ReservationList } from '../../components/ListResevations';
+import { Reservation } from '../../models/Reservation';
+
+interface ReservationManagmentProps {
+    reservationLists: Array<Reservation>;
+    reservation: Reservation;
+    addReservation: (reservation: Reservation) => void;
+    reservationList: () => void;
+    saveReservation: (reservation: Reservation) => void;
+    updateReservations: (idReservation: number, reservation: Reservation) => void;
+}
+
+
+export const ReservationManagment: React.FC<ReservationManagmentProps> = ({
+    reservationLists,
+    reservation,
+    addReservation,
+    reservationList,
+    saveReservation,
+    updateReservations,
+}) => {
+
+    const [tabReservation, setTabReservation] = useState('2');
+
+    useEffect(() => {
+        reservationList();
+    }, [reservationList]);
+
+    const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
+        setTabReservation(newValue);
+    };
+
+    const handleListTicket = () => {
+        setTabReservation('1');
+    };
+
+    return (
+        <ContentAppBar>
+            <TabContext value={tabReservation} >
+                <AppBar position='relative' className='appbar'>
+                    <TabList className='tablis' onChange={handleChange} aria-label="simple tabs example">
+                        <Tab className='tab' label="New" value="2" />
+                        <Tab className='tab' label="Reservation" value="1" />
+                    </TabList>
+                </AppBar >
+                <TabPanel value='1'>
+                    <ReservationList
+                        reservationLists={reservationLists}
+                        reservation={reservation}
+                        saveReservation={saveReservation}
+                        updateReservation={updateReservations}
+                    />
+                </TabPanel>
+                <TabPanel value='2'>
+                    <CreateReservationForm
+                        onSubmit={addReservation}
+                        formTitle='Create Reservacion'
+                        handleReservationList={handleListTicket}
+                    />
+                </TabPanel>
+            </TabContext>
+        </ContentAppBar>
+    );
+};
+
+
+ReservationManagment.propTypes = {
+    reservationLists: PropTypes.array.isRequired,
+    addReservation: PropTypes.func.isRequired,
+    reservationList: PropTypes.func.isRequired,
+    updateReservations: PropTypes.func.isRequired,
+    saveReservation: PropTypes.func.isRequired,
+    reservation: PropTypes.shape({
+        idTicket: PropTypes.number.isRequired,
+        telefonoUsuario: PropTypes.number.isRequired,
+        nombreUsuario: PropTypes.string.isRequired,
+        horaIngreso: PropTypes.number.isRequired,
+        horaSalida: PropTypes.number.isRequired,
+        idCancha: PropTypes.number.isRequired,
+        valor: PropTypes.number.isRequired,
+    }).isRequired
+};

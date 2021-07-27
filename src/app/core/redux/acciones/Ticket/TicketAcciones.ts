@@ -1,99 +1,99 @@
 import {
-    ACTUALIZAR_TICKET,
-    AGREGAR_TICKET,
-    ELIMINAR_TICKET,
-    GETID_TICKET,
-    GUARDAR_TICKET,
-    LISTAR_TICKETS,
-    TiposAccionesTicket
-} from './TicketTiposAcciones';
-import { Ticket } from 'app/feature/Reserva/models/Ticket';
-import { TicketRepositorio } from 'app/core/api/tickets.repositorio';
+    RESERVATION_LIST,
+    ADD_RESERVATION,
+    DELETE_RESERVATION,
+    UPDATE_RESERVATION,
+    SAVE_RESERVATION,
+    GET_RESERVATION,
+    ReservationActionTypes
+} from './ReservationActionTypes';
+import { Reservation } from 'app/feature/Reservation/models/Reservation';
+import { ReservationRepository } from 'app/core/api/reservation.repository';
 
 
-export function listarTickets(
-    tickets: Array<Ticket>
-): TiposAccionesTicket {
+export function reservationList(
+    reservationList: Array<Reservation>
+): ReservationActionTypes {
     return {
-        type: LISTAR_TICKETS,
-        payload: tickets
+        type: RESERVATION_LIST,
+        payload: reservationList
     };
 }
 
 
-export function agregarNuevoTicket(
-    ticket: Ticket
-): TiposAccionesTicket {
+export function addNewReservation(
+    reservation: Reservation
+): ReservationActionTypes {
     return {
-        type: AGREGAR_TICKET,
-        payload: ticket
+        type: ADD_RESERVATION,
+        payload: reservation
     };
 }
 
-export function getIdTicket(
-    ticket: Ticket
-): TiposAccionesTicket {
+export function getReservation(
+    reservation: Reservation
+): ReservationActionTypes {
     return {
-        type: GETID_TICKET,
-        payload: ticket
-    };
-}
-
-
-export function eliminarTicket(
-    ticket: Ticket
-): TiposAccionesTicket {
-    return {
-        type: ELIMINAR_TICKET,
-        payload: ticket
-    };
-}
-
-export function actualizarTicket(
-    ticket: Ticket
-): TiposAccionesTicket {
-    return {
-        type: ACTUALIZAR_TICKET,
-        payload: ticket
+        type: GET_RESERVATION,
+        payload: reservation
     };
 }
 
 
-export function listarTicketsAsync() {
+export function deleteReservation(
+    reservation: Reservation
+): ReservationActionTypes {
+    return {
+        type: DELETE_RESERVATION,
+        payload: reservation
+    };
+}
+
+export function updateReservation(
+    reservation: Reservation
+): ReservationActionTypes {
+    return {
+        type: UPDATE_RESERVATION,
+        payload: reservation
+    };
+}
+
+
+export function reservationListAsync() {
     return function (dispacth: any) {
-        TicketRepositorio.consultarTickets()
+        ReservationRepository.consultReservations()
             .then((respuesta: any) =>
                 dispacth(
-                    listarTickets(respuesta.data)
+                    reservationList(respuesta.data)
                 )
             );
     };
 }
 
 
-export function agregarTicketAsync(ticket: Ticket) {
+export function addReservationAsync(reservation: Reservation) {
     return function () {
-        TicketRepositorio.AgregarTicket(
-            ticket
+        ReservationRepository.addReservation(
+            reservation
         );
     };
 }
 
 
-export function guardarTicket(
-    ticket: Ticket
-): TiposAccionesTicket {
+export function saveReservation(
+    reservation: Reservation
+): ReservationActionTypes {
     return {
-        type: GUARDAR_TICKET,
-        payload: ticket
+        type: SAVE_RESERVATION,
+        payload: reservation
     };
 }
 
 
-export function actualizarTicketsAsync(idTicket: number, ticket: Ticket) {
+export function updateReservationsAsync(idReservation: number, reservation: Reservation) {
     return function () {
-        TicketRepositorio.actualizarTicket(
-            idTicket, ticket
+        ReservationRepository.updateReservation(
+            idReservation, reservation
         );
     };
 }

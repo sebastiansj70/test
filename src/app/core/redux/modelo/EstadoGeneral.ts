@@ -1,9 +1,9 @@
 import { EstadoCancha } from './EstadoCancha';
 import { EstadoProducto } from './EstadoProducto';
-import { EstadoTicket } from './EstadoTicket';
+import { StatusReservation } from './StatusReservation';
 
 export interface EstadoGeneral {
   productos: EstadoProducto;
-  ticket: EstadoTicket;
+  reservation: StatusReservation;
   cancha: EstadoCancha;
 }

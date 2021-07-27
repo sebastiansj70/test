@@ -5,12 +5,12 @@ import { Button } from 'app/shared/components/Button';
 import { Form } from './styles';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
-import { Ticket } from '../../models/Ticket';
-import { Tittle } from 'app/shared/components/Tittle';
+import { Reservation } from '../../models/Reservation';
+import { Tittle } from '../../../../shared/components/Tittle';
 import { useFormik } from 'formik';
 
 interface FormValues {
-    idticket: number;
+    idTicket: number;
     telefonoUsuario: number;
     nombreUsuario: string;
     horaIngreso: number;
@@ -19,17 +19,15 @@ interface FormValues {
     valor: number
 }
 
-
-interface ActualizarTicketProps {
-    onSubmit: (idTicket: number, payload: Ticket) => any;
+interface CreateReservationFormProp {
+    onSubmit: (payload: Reservation) => any;
+    disabled?: boolean;
     formTitle: string;
-    ticket: Ticket;
     initialValues?: FormValues;
-    handleShow: () => void;
-
+    handleReservationList: () => void;
 }
 const validationSchema = Yup.object().shape<FormValues>({
-    idticket: Yup.number().required(''),
+    idTicket: Yup.number().required(''),
     telefonoUsuario: Yup.number().required('El campo telefono de usuario es requerido.'),
     nombreUsuario: Yup.string().required('El campo nombre de usuario es requerido.'),
     horaIngreso: Yup.number().required('El campo hora de ingreso es requerido.'),
@@ -38,112 +36,103 @@ const validationSchema = Yup.object().shape<FormValues>({
     valor: Yup.number().required('El campo valor es requerido.'),
 });
 
-export const ActualizarTicket: React.FC<ActualizarTicketProps> = ({
-    // onEliminar,
+export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
     onSubmit,
-    handleShow,
-    ticket,
+    handleReservationList,
+    disabled,
     formTitle,
     initialValues = {
-        idticket: ticket.idTicket,
-        telefonoUsuario: ticket.telefonoUsuario,
-        nombreUsuario: ticket.nombreUsuario,
-        horaIngreso: ticket.horaIngreso,
-        horaSalida: ticket.horaSalida,
-        idCancha: ticket.idCancha,
-        valor: ticket.valor,
+        idTicket: 1,
+        telefonoUsuario: 321,
+        nombreUsuario: '',
+        horaIngreso: 0,
+        horaSalida: 0,
+        idCancha: 0,
+        valor: 0,
     },
-
 }) => {
-    // const handleEliminar = () => onEliminar(ticket);
-    const handleSubmit = (
-        values: FormValues,
-        { resetForm }: FormikHelpers<FormValues>
+    const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>
     ) => {
-        onSubmit(values.idticket, {
-            idTicket: values.idticket,
+        onSubmit({
+            idTicket: values.idTicket,
             telefonoUsuario: values.telefonoUsuario,
             nombreUsuario: values.nombreUsuario,
             horaIngreso: values.horaIngreso,
             horaSalida: values.horaSalida,
             idCancha: values.idCancha,
-            valor: values.valor,
+            valor: values.valor
         });
         resetForm();
-        handleShow();
+        handleReservationList();
     };
+
     const formik = useFormik({
         initialValues,
         validationSchema,
         onSubmit: handleSubmit,
     });
 
-
-
     return (
-
         <Form onSubmit={formik.handleSubmit}>
-            <Tittle
-                msg={formTitle}
-            />
+            <Tittle msg={formTitle} />
             <Input
-                placeholder=''
+                id='telefonoUsuario'
+                disabled={disabled}
+                placeholder='Telefono de usuario'
                 name='telefonoUsuario'
                 onChange={formik.handleChange}
                 type='number'
-                value={formik.values.telefonoUsuario}
             />
-
             <Input
-                placeholder=''
+                id='nombreUsuario'
+                disabled={disabled}
+                placeholder='Nombre de usuario'
                 name='nombreUsuario'
                 onChange={formik.handleChange}
-                value={formik.values.nombreUsuario}
-
             />
-
             <Input
-                placeholder=''
+                id='horaIngreso'
+                disabled={disabled}
+                placeholder='Hora de ingreso'
                 name='horaIngreso'
                 onChange={formik.handleChange}
                 type='number'
-                value={formik.values.horaIngreso}
-
             />
             <Input
-                placeholder=''
+                id='horaSalida'
+                disabled={disabled}
+                placeholder='Hora salida'
                 name='horaSalida'
                 onChange={formik.handleChange}
                 type='number'
-                value={formik.values.horaSalida}
-
             />
             <Input
-                placeholder=''
+                id='idCancha'
+                disabled={disabled}
+                placeholder='Numero de cancha'
                 name='idCancha'
                 onChange={formik.handleChange}
                 type='number'
-                value={formik.values.idCancha}
-
             />
             <Input
-                placeholder=''
+                id='valor'
+                disabled={disabled}
+                placeholder='Valor'
                 name='valor'
                 onChange={formik.handleChange}
                 type='number'
-                value={formik.values.valor}
-                readOnly={false}
             />
-            <Button type="submit" name="Actualizar">Actualizar</Button>
+            <Button type="submit" name='registro-ticket'>Registrar</Button>
         </Form>
-
     );
 };
 
-ActualizarTicket.propTypes = {
+
+CreateReservationForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     formTitle: PropTypes.string.isRequired,
-    ticket: PropTypes.shape({
+    disabled: PropTypes.bool,
+    initialValues: PropTypes.shape({
         idTicket: PropTypes.number.isRequired,
         telefonoUsuario: PropTypes.number.isRequired,
         nombreUsuario: PropTypes.string.isRequired,
@@ -151,16 +140,6 @@ ActualizarTicket.propTypes = {
         horaSalida: PropTypes.number.isRequired,
         idCancha: PropTypes.number.isRequired,
         valor: PropTypes.number.isRequired,
-    }).isRequired,
-    handleShow: PropTypes.func.isRequired,
-    initialValues: PropTypes.shape({
-        idticket: PropTypes.number.isRequired,
-        telefonoUsuario: PropTypes.number.isRequired,
-        nombreUsuario: PropTypes.string.isRequired,
-        horaIngreso: PropTypes.number.isRequired,
-        horaSalida: PropTypes.number.isRequired,
-        idCancha: PropTypes.number.isRequired,
-        valor: PropTypes.number.isRequired,
     }),
-    // onEliminar: PropTypes.func.isRequired,
+    handleReservationList: PropTypes.func.isRequired,
 };

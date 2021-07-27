@@ -7,7 +7,7 @@ import { NavList } from './NavList';
 export const NavigationHeader: React.FC = () => {
   const routes = [
     { label: 'Cancha', url: '/cancha' },
-    { label: 'Ticket', url: '/ticket' },
+    { label: 'Reservation', url: '/ticket' },
   ];
   return (
     <HeaderNav>

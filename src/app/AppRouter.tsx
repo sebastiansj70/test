@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { CanchaRouter } from 'app/feature/Cancha/CanchaRouter';
 import MainPage from 'app/Main';
 import { NavigationHeader } from 'app/shared/components/NavigationHeader';
-import { TicketRouter } from 'app/feature/Reserva/TicketRouter';
+import { TicketRouter } from 'app/feature/Reservation/ReservationRouter';
 
 export const AppRouter = () => {
   return (

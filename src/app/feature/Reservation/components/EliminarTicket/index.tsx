@@ -1,20 +1,20 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import { Button } from 'app/shared/components/Button';
-import { Ticket } from '../../models/Ticket';
+import { Reservation } from '../../models/Reservation';
 
-interface BtnEliminarTicketProps {
-    onEliminar: (ticket: Ticket) => any;
-    ticket: Ticket;
+interface ButtonDeleteReservationProps {
+    DeleteReservation: (ticket: Reservation) => any;
+    ticket: Reservation;
 }
 
-export const BtnEliminarTicket: React.FC<BtnEliminarTicketProps> = ({
-    onEliminar,
+export const ButtonDeleteReservation: React.FC<ButtonDeleteReservationProps> = ({
+    DeleteReservation,
     ticket,
 }) => {
-    const handleEliminar = () => onEliminar(ticket);
+    const handleDeleteReservation = () => DeleteReservation(ticket);
     return (
-        <Button onClick={handleEliminar}>
+        <Button onClick={handleDeleteReservation}>
             <span role="img" aria-labelledby="trash">
                 🗑️
             </span>
@@ -22,7 +22,7 @@ export const BtnEliminarTicket: React.FC<BtnEliminarTicketProps> = ({
     );
 };
 
-BtnEliminarTicket.propTypes = {
+ButtonDeleteReservation.propTypes = {
     ticket: PropTypes.shape({
         idTicket: PropTypes.number.isRequired,
         telefonoUsuario: PropTypes.number.isRequired,
@@ -32,5 +32,5 @@ BtnEliminarTicket.propTypes = {
         idCancha: PropTypes.number.isRequired,
         valor: PropTypes.number.isRequired,
     }).isRequired,
-    onEliminar: PropTypes.func.isRequired,
+    DeleteReservation: PropTypes.func.isRequired,
 };

@@ -1,14 +1,14 @@
-import { EstadoTicket } from 'app/core/redux/modelo/EstadoTicket';
-import { Ticket } from 'app/feature/Reserva/models/Ticket';
-import { agregarNuevoTicket } from 'app/core/redux/acciones/Ticket/TicketAcciones';
-import reductorProductos from './ticketReductor';
+import { StatusReservation } from 'app/core/redux/modelo/StatusReservation';
+import { Reservation } from 'app/feature/Reservation/models/Reservation';
+import { addNewReservation } from 'app/core/redux/acciones/Ticket/TicketAcciones';
+import reductorProductos from './reservationReductor';
 
 describe('Reductor tickets', () => {
     it('debería agregar ticket', () => {
         // Arrange
-        const estadoInicial: EstadoTicket = {
-            ticket: [],
-            ticketNew: {
+        const estadoInicial: StatusReservation = {
+            reservationLists: [],
+            reservation: {
                 idTicket: 1,
                 telefonoUsuario: 321,
                 nombreUsuario: '',
@@ -19,7 +19,7 @@ describe('Reductor tickets', () => {
             },
             idTicket: 1,
         };
-        const nuevoTicket: Ticket = {
+        const nuevoTicket: Reservation = {
             idTicket: 1,
             telefonoUsuario: 3186905006,
             nombreUsuario: 'Juan',
@@ -28,15 +28,15 @@ describe('Reductor tickets', () => {
             idCancha: 1,
             valor: 50
         };
-        const estadoEsperado: EstadoTicket = {
+        const estadoEsperado: StatusReservation = {
             ...estadoInicial,
-            ticket: [nuevoTicket],
+            reservationLists: [nuevoTicket],
         };
 
         // Act
         const nuevoEstado = reductorProductos(
             estadoInicial,
-            agregarNuevoTicket(nuevoTicket)
+            addNewReservation(nuevoTicket)
         );
 
         // Assert
