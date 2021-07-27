@@ -36,7 +36,7 @@ export function eliminarCanchas(
     };
 }
 
-export function actualizarTicket(
+export function actualizarCancha(
     cancha: Cancha
 ): TiposAccionesCanchas {
     return {

@@ -3,7 +3,7 @@ import {
     SAVE_RESERVATION,
     RESERVATION_LIST,
     ReservationActionTypes,
-} from '../../acciones/Ticket/ReservationActionTypes';
+} from '../../acciones/Reservation/ReservationActionTypes';
 import { StatusReservation } from '../../modelo/StatusReservation';
 import { Reservation } from 'app/feature/Reservation/models/Reservation';
 
@@ -28,7 +28,6 @@ export default function (
 ): StatusReservation {
     switch (action.type) {
         case RESERVATION_LIST:
-            console.log(action.payload, 'action.payload')
             return {
                 ...state,
                 reservationLists: action.payload,

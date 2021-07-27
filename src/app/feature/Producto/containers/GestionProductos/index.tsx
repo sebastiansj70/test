@@ -23,7 +23,6 @@ export const GestionProductos: React.FC<GestionProductosProps> = ({
   cantidadTotalProducto,
 }) => {
   useEffect(() => {
-    console.log(listarProductos);
     listarProductos(0);
   }, [listarProductos]);
 

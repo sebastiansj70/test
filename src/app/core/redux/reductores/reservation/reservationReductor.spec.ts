@@ -1,6 +1,6 @@
 import { StatusReservation } from 'app/core/redux/modelo/StatusReservation';
 import { Reservation } from 'app/feature/Reservation/models/Reservation';
-import { addNewReservation } from 'app/core/redux/acciones/Ticket/TicketAcciones';
+import { addNewReservation } from 'app/core/redux/acciones/Reservation/ReservationActions';
 import reductorProductos from './reservationReductor';
 
 describe('Reductor tickets', () => {

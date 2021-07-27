@@ -10,7 +10,7 @@ describe('Cancha', () => {
         cy.contains('Crear Cancha')
     })
 
-    it('create new ticket ', () => {
+    it('create new Cancha ', () => {
         cy.contains('Nueva').click()
         cy.get('input[name="idCancha"]').type('6')
         cy.get('input[name="statusCancha"]').type('Buena')

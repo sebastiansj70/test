@@ -37,7 +37,7 @@ export const ReservationManagment: React.FC<ReservationManagmentProps> = ({
         setTabReservation(newValue);
     };
 
-    const handleListTicket = () => {
+    const handleListReservation = () => {
         setTabReservation('1');
     };
 
@@ -46,8 +46,8 @@ export const ReservationManagment: React.FC<ReservationManagmentProps> = ({
             <TabContext value={tabReservation} >
                 <AppBar position='relative' className='appbar'>
                     <TabList className='tablis' onChange={handleChange} aria-label="simple tabs example">
-                        <Tab className='tab' label="New" value="2" />
-                        <Tab className='tab' label="Reservation" value="1" />
+                        <Tab className='tab' label="Nueva" value="2" />
+                        <Tab className='tab' label="Reservaciones" value="1" />
                     </TabList>
                 </AppBar >
                 <TabPanel value='1'>
@@ -61,8 +61,8 @@ export const ReservationManagment: React.FC<ReservationManagmentProps> = ({
                 <TabPanel value='2'>
                     <CreateReservationForm
                         onSubmit={addReservation}
-                        formTitle='Create Reservacion'
-                        handleReservationList={handleListTicket}
+                        formTitle='Crear Reservacion'
+                        handleReservationList={handleListReservation}
                     />
                 </TabPanel>
             </TabContext>

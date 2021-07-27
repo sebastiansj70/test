@@ -3,7 +3,7 @@ import {
     addReservationAsync,
     saveReservation,
     reservationListAsync
-} from 'app/core/redux/acciones/Ticket/TicketAcciones';
+} from 'app/core/redux/acciones/Reservation/ReservationActions';
 import { EstadoGeneral } from 'app/core/redux/modelo/EstadoGeneral';
 import { ReservationManagment } from '../containers/ReservationManagement';
 

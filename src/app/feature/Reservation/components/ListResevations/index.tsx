@@ -45,7 +45,7 @@ export const ReservationList: React.FC<ReservationListProps> = ({
                 reservationLists.map((reservation: Reservation) => {
                     return (
                         <div
-                            id={'ticketsList'}
+                            id={'reservationsList'}
                             key={Math.random()}
                             onClick={() => handleOpenModal(reservation)}
                         >
