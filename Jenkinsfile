@@ -27,7 +27,7 @@ pipeline {
 
   //Aquí comienzan los “items” del Pipeline
   stages{
-   stage('Checkout'){
+    stage('Checkout'){
 	    steps{
             echo "------------>Checkout<------------"
             checkout([
@@ -41,7 +41,7 @@ pipeline {
                     credentialsId: 'GitHub_sebastiansj70', 
                     url:'https://github.com/sebastiansj70/test'
                 ]]
-            ]),
+            ])
         }
     }
 
@@ -49,7 +49,9 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Compile & Unit Tests<------------"
+       
             sh 'npm run test'
+
       }
     }
 
