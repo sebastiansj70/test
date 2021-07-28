@@ -52,7 +52,7 @@ pipeline {
         // sh 'npm test'
         // sh 'chmod +x gradlew'
         // sh './gradlew --b ./build.gradle test'
-
+            sh 'npm run test'
 
       }
     }
@@ -69,7 +69,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        // sh 'npm install'
+        sh 'npm run build'
       }
     }  
   }

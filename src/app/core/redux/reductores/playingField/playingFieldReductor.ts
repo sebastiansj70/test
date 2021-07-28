@@ -21,6 +21,7 @@ export default function (
 ): StatusPlayinField {
     switch (action.type) {
         case PLAYING_FIELD_LIST:
+            console.log(action.payload)
             return {
                 ...state,
                 playingFieldLists: action.payload,
