@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateReservationForm  should match snapshot 1`] = `
+<div>
+  <form
+    class="sc-AxiKw iPybUT"
+  >
+    <h1
+      class="sc-AxhUy ftqyIz"
+    >
+      test create form
+    </h1>
+    <input
+      class="sc-AxhCb gLMSgW"
+      id="telefonoUsuario"
+      name="telefonoUsuario"
+      placeholder="Telefono de usuario"
+    />
+    <input
+      class="sc-AxhCb gLMSgW"
+      id="nombreUsuario"
+      name="nombreUsuario"
+      placeholder="Nombre de usuario"
+    />
+    <input
+      class="sc-AxhCb gLMSgW"
+      id="horaIngreso"
+      name="horaIngreso"
+      placeholder="Hora de ingreso"
+    />
+    <input
+      class="sc-AxhCb gLMSgW"
+      id="horaSalida"
+      name="horaSalida"
+      placeholder="Hora salida"
+    />
+    <input
+      class="sc-AxhCb gLMSgW"
+      id="idCancha"
+      name="idCancha"
+      placeholder="Numero de cancha"
+    />
+    <input
+      class="sc-AxhCb gLMSgW"
+      id="valor"
+      name="valor"
+      placeholder="Valor"
+    />
+    <button
+      class="sc-AxjAm kgxTKy"
+      name="registro-ticket"
+      type="submit"
+    >
+      Registrar
+    </button>
+  </form>
+</div>
+`;

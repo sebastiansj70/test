@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayingFieldForm shoult match snapshot 1`] = `
+<div>
+  <form
+    class="sc-AxjAm cieRug"
+  >
+    <h1
+      class="sc-AxhUy ftqyIz"
+    >
+      test playing field from
+    </h1>
+    <input
+      class="sc-AxhCb gLMSgW"
+      name="idCancha"
+      placeholder="Número de cancha"
+      type="number"
+    />
+    <input
+      class="sc-AxhCb gLMSgW"
+      name="statusCancha"
+      placeholder="Estado de la cancha"
+    />
+    <button
+      class="sc-AxiKw hNdhxp"
+      type="submit"
+    >
+      Registrar
+    </button>
+  </form>
+</div>
+`;

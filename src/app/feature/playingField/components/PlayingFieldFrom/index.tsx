@@ -10,7 +10,7 @@ import { Tittle } from 'app/shared/components/Tittle';
 import { useFormik } from 'formik';
 
 interface FormValues {
-    idCancha: number;
+    idCancha: string;
     statusCancha: string;
 }
 
@@ -25,7 +25,7 @@ interface PlayingFieldFormProp {
 
 
 const validationSchema = Yup.object().shape<FormValues>({
-    idCancha: Yup.number().required('El campo id cancha es requerido.'),
+    idCancha: Yup.string().required('El campo id cancha es requerido.'),
     statusCancha: Yup.string().required('El campo status Cancha es requerido.'),
 });
 
@@ -36,7 +36,7 @@ export const PlayingFieldForm: React.FC<PlayingFieldFormProp> = (({
     disabled,
     formTitle,
     initialValues = {
-        idCancha: 321,
+        idCancha: '',
         statusCancha: '',
     },
 }) => {
@@ -45,7 +45,7 @@ export const PlayingFieldForm: React.FC<PlayingFieldFormProp> = (({
         { resetForm }: FormikHelpers<FormValues>
     ) => {
         onSubmit({
-            idCancha: values.idCancha,
+            idCancha: parseInt(values.idCancha),
             statusCancha: values.statusCancha,
         });
         handleListTicket();
@@ -95,7 +95,7 @@ PlayingFieldForm.propTypes = {
     formTitle: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
     initialValues: PropTypes.shape({
-        idCancha: PropTypes.number.isRequired,
+        idCancha: PropTypes.string.isRequired,
         statusCancha: PropTypes.string.isRequired,
     }),
     handleListTicket: PropTypes.func.isRequired,
