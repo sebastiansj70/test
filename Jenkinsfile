@@ -27,14 +27,7 @@ pipeline {
 
   //Aquí comienzan los “items” del Pipeline
   stages{
-    // stage('Install'){
-    //   steps{
-    //     sh 'npm install'
-    //   }
-    // }
-
-
-    stage('Checkout'){
+   stage('Checkout'){
 	    steps{
             echo "------------>Checkout<------------"
             checkout([

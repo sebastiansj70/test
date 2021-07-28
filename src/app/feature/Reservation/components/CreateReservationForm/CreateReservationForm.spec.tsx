@@ -11,7 +11,7 @@ describe('CreateReservationForm ', () => {
         onSubmit: SinonStub;
     };
 
-    beforeEach(() => {
+    beforeEach(() => { 
         componentProps = {
             onSubmit: stub(),
             formTitle: 'test create form',
