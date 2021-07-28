@@ -24,9 +24,9 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test --watchAll=false",
+        "test": "react-scripts test",
         "test:watch": "react-scripts test --watchAll -u",
-        "test:coverage": "react-scripts test --watchAll=false",
+        "test:coverage": "react-scripts test --watchAll=false --coverage",
         "lint": "eslint --fix src/**/*.{ts,tsx}",
         "cypress:open": "cypress open"
     },
