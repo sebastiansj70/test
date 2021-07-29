@@ -30,6 +30,7 @@ pipeline {
     stage('Install') {
       steps {
             echo '------------>Install<------------'
+            sh 'npm install'
       }
     }
 
