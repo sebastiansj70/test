@@ -7,91 +7,93 @@ import { PlayingField } from '../../models/PlayingField';
 import { Tittle } from '../../../../shared/components/Tittle';
 import { UpdatePlayingList } from '../UpdatePlayingList';
 
-
 export interface PlayingFieldListProps {
-    playingFieldLists: Array<PlayingField>;
-    playingField: PlayingField,
-    updatePlayingField: (idplayingField: number, playingField: PlayingField) => void;
-    savePalyingField: (playingField: PlayingField) => void;
+  playingFieldLists: Array<PlayingField>;
+  playingField: PlayingField;
+  updatePlayingField: (
+    idplayingField: number,
+    playingField: PlayingField
+  ) => void;
+  savePalyingField: (playingField: PlayingField) => void;
 }
 
 export const PlayingFieldList: React.FC<PlayingFieldListProps> = ({
-    playingFieldLists,
-    playingField,
-    updatePlayingField,
-    savePalyingField
+  playingFieldLists,
+  playingField,
+  updatePlayingField,
+  savePalyingField,
 }) => {
+  useEffect(() => {}, [updatePlayingField]);
 
-    useEffect(() => {
-    }, [updatePlayingField]);
+  const [open, setOpen] = React.useState(false);
 
+  const handleOpenModal = (playingField: PlayingField) => {
+    savePalyingField(playingField);
+    setOpen(true);
+  };
 
-    const [open, setOpen] = React.useState(false);
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
 
-    const handleOpenModal = (playingField: PlayingField) => {
-        savePalyingField(playingField);
-        setOpen(true);
-    };
-
-
-    const handleCloseModal = () => {
-        setOpen(false);
-    };
-
-
-    return (
-        <ContentCard>
-            <Tittle
-                msg='Lista de campos de juego'
+  return (
+    <ContentCard>
+      <Tittle msg="Lista de campos de juego" />
+      {playingFieldLists.map((playingField: PlayingField) => {
+        return (
+          <div
+            id={'canchaList'}
+            key={Math.random()}
+            onClick={() => handleOpenModal(playingField)}
+          >
+            <CardCancha
+              key={Math.random()}
+              idCancha={playingField.idCancha}
+              statusCancha={playingField.statusCancha}
             />
-            {
-                playingFieldLists.map((playingField: PlayingField) => {
-                    return (
-                        <div
-                            id={'canchaList'}
-                            key={Math.random()}
-                            onClick={() => handleOpenModal(playingField)}
-                        >
-                            <CardCancha
-                                key={Math.random()}
-                                idCancha={playingField.idCancha}
-                                statusCancha={playingField.statusCancha}
-                            />
-                        </div>
-                    );
-                })
-            }
+          </div>
+        );
+      })}
 
-            <div>
-
-                <Modal
-                    open={open}
-                    onClose={handleCloseModal}
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
-                    style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}
-                >
-                    <div style={{ background: '#FFF', width: '80vmin', padding: '4vmin', borderRadius: '2vmin' }}>
-                        <UpdatePlayingList
-                            playingField={playingField}
-                            formTitle='Actualizar Ticket'
-                            onSubmit={updatePlayingField}
-                            handleCloseModal={handleCloseModal}
-                        />
-                    </div>
-                </Modal>
-            </div>
-
-        </ContentCard>
-    );
+      <div>
+        <Modal
+          open={open}
+          onClose={handleCloseModal}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+          }}
+        >
+          <div
+            style={{
+              background: '#FFF',
+              width: '80vmin',
+              padding: '4vmin',
+              borderRadius: '2vmin',
+            }}
+          >
+            <UpdatePlayingList
+              playingField={playingField}
+              formTitle="Actualizar Ticket"
+              onSubmit={updatePlayingField}
+              handleCloseModal={handleCloseModal}
+            />
+          </div>
+        </Modal>
+      </div>
+    </ContentCard>
+  );
 };
 
 PlayingFieldList.propTypes = {
-    playingFieldLists: PropTypes.array.isRequired,
-    playingField: PropTypes.shape({
-        idCancha: PropTypes.number.isRequired,
-        statusCancha: PropTypes.string.isRequired,
-    }).isRequired,
-    updatePlayingField: PropTypes.func.isRequired,
-    savePalyingField: PropTypes.func.isRequired,
+  playingFieldLists: PropTypes.array.isRequired,
+  playingField: PropTypes.shape({
+    idCancha: PropTypes.number.isRequired,
+    statusCancha: PropTypes.string.isRequired,
+  }).isRequired,
+  updatePlayingField: PropTypes.func.isRequired,
+  savePalyingField: PropTypes.func.isRequired,
 };

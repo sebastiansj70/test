@@ -1,99 +1,53 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { RenderResult, render, wait, fireEvent } from '@testing-library/react';
-import { CreateReservationForm } from './';
+import { UpdateReservation } from '.';
 import { SinonStub, stub } from 'sinon';
 import { setTextEvent } from 'app/shared/utils/test';
 
-describe('CreateReservationForm ', () => {
+describe('UpdateReservationForm', () => {
   let componentWrapper: RenderResult;
-  let componentProps: React.ComponentProps<typeof CreateReservationForm> & {
+  let componentProps: React.ComponentProps<typeof UpdateReservation> & {
     onSubmit: SinonStub;
   };
 
   beforeEach(() => {
     componentProps = {
       onSubmit: stub(),
-      formTitle: 'test create form',
-      handleReservationList: jest.fn(),
+      formTitle: 'tittle form test',
+      handleShow: jest.fn(),
+      reservation: {
+        idTicket: 1,
+        telefonoUsuario: 3186905006,
+        nombreUsuario: 'juan',
+        horaIngreso: 1626283800000,
+        horaSalida: 1626283800000,
+        idCancha: 1,
+        valor: 50000,
+      },
     };
-    componentWrapper = render(<CreateReservationForm {...componentProps} />);
+    componentWrapper = render(<UpdateReservation {...componentProps} />);
   });
 
   it('should match snapshot', () => {
     expect(componentWrapper.container).toMatchSnapshot();
   });
 
-  it('debe fallar al enviar todos los campos que faltan', async () => {
+  it('debe fallar al faltar un dato', async () => {
     const elem = componentWrapper.container;
     const submitButton = elem.querySelector('button[type="submit"]');
+    const valor = elem.querySelector('input[name="valor"]');
+
+    await wait(() => {
+      valor && fireEvent.change(valor, setTextEvent('valor', ''));
+    });
 
     await wait(() => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(6);
-    expect(spans[0].textContent).toBe(
-      'El campo telefono de usuario es requerido.'
-    );
-    expect(spans[1].textContent).toBe(
-      'El campo nombre de usuario es requerido.'
-    );
-    expect(spans[2].textContent).toBe('El campo hora de ingreso es requerido.');
-    expect(spans[3].textContent).toBe('El campo hora de salida es requerido.');
-    expect(spans[4].textContent).toBe(
-      'El campo numero de cancha es requerido.'
-    );
-    expect(spans[5].textContent).toBe('El campo valor es requerido.');
-  });
-
-  it('debe fallar al enviar dos campos faltantes', async () => {
-    const elem = componentWrapper.container;
-    const telefonoUsuario = elem.querySelector('input[name="telefonoUsuario"]');
-    const nombreUsuario = elem.querySelector('input[name="nombreUsuario"]');
-    const horaIngreso = elem.querySelector('input[name="horaIngreso"]');
-    const horaSalida = elem.querySelector('input[name="horaSalida"]');
-    const submitButton = elem.querySelector('button[type="submit"]');
-
-    await wait(() => {
-      telefonoUsuario &&
-        fireEvent.change(
-          telefonoUsuario,
-          setTextEvent('telefonoUsuario', '318690')
-        );
-    });
-
-    await wait(() => {
-      nombreUsuario &&
-        fireEvent.change(nombreUsuario, setTextEvent('nombreUsuario', 'juan'));
-    });
-
-    await wait(() => {
-      horaIngreso &&
-        fireEvent.change(
-          horaIngreso,
-          setTextEvent('horaIngreso', '1626283800000')
-        );
-    });
-
-    await wait(() => {
-      horaSalida &&
-        fireEvent.change(
-          horaSalida,
-          setTextEvent('horaSalida', '1626283800000')
-        );
-    });
-
-    await wait(() => {
-      submitButton && fireEvent.click(submitButton);
-    });
-
-    const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(2);
-    expect(spans[0].textContent).toBe(
-      'El campo numero de cancha es requerido.'
-    );
-    expect(spans[1].textContent).toBe('El campo valor es requerido.');
+    expect(spans.length).toBe(1);
+    expect(spans[0].textContent).toBe('El campo valor es requerido.');
   });
 
   it('deberia eniviar', async () => {
@@ -147,7 +101,7 @@ describe('CreateReservationForm ', () => {
       submitButton && fireEvent.click(submitButton);
     });
 
-    const formSubmitted = componentProps.onSubmit.firstCall.args[0];
+    const formSubmitted = componentProps.onSubmit.firstCall.args[1];
 
     expect(formSubmitted.telefonoUsuario).toBe(3186905006);
     expect(formSubmitted.nombreUsuario).toBe('juan');

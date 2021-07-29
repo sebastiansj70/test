@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayingFieldList test should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-AxirZ dZWKyK"
+  >
+    <h1
+      class="sc-AxiKw cRbuiW"
+    >
+      Lista de campos de juego
+    </h1>
+    <div
+      id="canchaList"
+    >
+      <div
+        class="sc-AxjAm jPIHtA"
+      >
+        <h3>
+          Número de Cancha : 1
+        </h3>
+        <h3>
+          Estado de Cancha : Bueno
+        </h3>
+      </div>
+    </div>
+    <div
+      id="canchaList"
+    >
+      <div
+        class="sc-AxjAm jPIHtA"
+      >
+        <h3>
+          Número de Cancha : 2
+        </h3>
+        <h3>
+          Estado de Cancha : Malo
+        </h3>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;

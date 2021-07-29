@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<div>
+  <div
+    class="sc-AxheI dtDSCr"
+  >
+    <h1
+      class="sc-fzozJi jIbZRk"
+    >
+      Lista de reservaciones
+    </h1>
+    <div
+      id="reservationsList"
+    >
+      <div
+        class="sc-AxjAm bWaaKr"
+      >
+        <div
+          class="sc-AxiKw iFfnQU"
+        >
+          <img
+            class="sc-AxhUy jHSZEE"
+            src="logo-ball.png"
+          />
+          <h1>
+            San Juan
+          </h1>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Teléfono:  
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            3186905006
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Nombre : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            juan
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Ingreso : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            1626283800000
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Salida :
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            1626283800000
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Cancha : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            1
+          </h3>
+        </div>
+        <h5
+          class="sc-AxgMl SfUKN"
+        >
+          --------------------------------------------------------
+        </h5>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            valor : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            50000
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div
+      id="reservationsList"
+    >
+      <div
+        class="sc-AxjAm bWaaKr"
+      >
+        <div
+          class="sc-AxiKw iFfnQU"
+        >
+          <img
+            class="sc-AxhUy jHSZEE"
+            src="logo-ball.png"
+          />
+          <h1>
+            San Juan
+          </h1>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Teléfono:  
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            3186905006
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Nombre : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            Sebastian
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Ingreso : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            1626283800000
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Salida :
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            1626283800000
+          </h3>
+        </div>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            Cancha : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            2
+          </h3>
+        </div>
+        <h5
+          class="sc-AxgMl SfUKN"
+        >
+          --------------------------------------------------------
+        </h5>
+        <div
+          class="sc-AxirZ jRMgv"
+        >
+          <h3>
+            valor : 
+          </h3>
+          <h3
+            class="sc-AxhCb izLcMB"
+          >
+            50000
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;

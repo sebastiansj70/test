@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdatePlayinField Form should match snapshot 1`] = `
+<div>
+  <form
+    class="sc-AxiKw iPybUT"
+  >
+    <h1
+      class="sc-AxgMl jfqWoR"
+    >
+      tittle form test
+    </h1>
+    <input
+      class="sc-AxhUy cAHivH"
+      name="idCancha"
+      placeholder=""
+      value="1"
+    />
+    <input
+      class="sc-AxhUy cAHivH"
+      name="statusCancha"
+      placeholder=""
+      value="Bueno"
+    />
+    <button
+      class="sc-AxjAm kgxTKy"
+      name="Actualizar"
+      type="submit"
+    >
+      Actualizar
+    </button>
+  </form>
+</div>
+`;
