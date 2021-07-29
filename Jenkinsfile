@@ -27,11 +27,6 @@ pipeline {
 
   //Aquí comienzan los “items” del Pipeline
   stages {
-    stage('Install') {
-      steps {
-        sh 'npm install'
-      }
-    }
     stage('Checkout') {
       steps {
             echo '------------>Checkout<------------'
@@ -69,7 +64,7 @@ pipeline {
     stage('Build') {
       steps {
         echo '------------>Build<------------'
-          // sh 'npm run build'
+          sh 'npm run build'
       }
     }
   }
