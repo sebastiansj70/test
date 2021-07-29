@@ -6,8 +6,8 @@ pipeline {
 
   //Opciones específicas de Pipeline dentro del Pipeline
   options {
-  //       buildDiscarder(logRotator(numToKeepStr: '3'))
-  // disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr: '3'))
+    disableConcurrentBuilds()
   }
 
   //Una sección que define las herramientas “preinstaladas” en Jenkins
@@ -48,7 +48,8 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps {
         echo '------------>Compile & Unit Tests<------------'
-          sh 'npm run test'
+
+            sh 'npm run test'
       }
     }
 
