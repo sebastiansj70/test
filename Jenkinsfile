@@ -27,6 +27,12 @@ pipeline {
 
   //Aquí comienzan los “items” del Pipeline
   stages {
+    stage('Install') {
+      steps {
+            echo '------------>Install<------------'
+      }
+    }
+
     stage('Checkout') {
       steps {
             echo '------------>Checkout<------------'
