@@ -56,7 +56,7 @@ pipeline {
       steps {
         echo '------------>Compile & Unit Tests<------------'
 
-            // sh 'npm run test'
+            sh 'npm run test'
       }
     }
 
