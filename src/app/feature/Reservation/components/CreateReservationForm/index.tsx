@@ -20,7 +20,7 @@ interface FormValues {
 }
 
 interface CreateReservationFormProp {
-  onSubmit: (payload: Reservation) => any;
+  onSubmit: (payload: Reservation) => void;
   disabled?: boolean;
   formTitle: string;
   initialValues?: FormValues;

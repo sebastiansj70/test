@@ -15,7 +15,7 @@ interface FormValues {
 }
 
 interface PlayingFieldFormProp {
-  onSubmit: (payload: PlayingField) => any;
+  onSubmit: (payload: PlayingField) => void;
   disabled?: boolean;
   formTitle: string;
   initialValues?: FormValues;
