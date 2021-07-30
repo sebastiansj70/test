@@ -8,6 +8,7 @@ import {
 } from './PlayingFieldActionsTypes';
 import { PlayingField } from 'app/feature/playingField/models/PlayingField';
 import { PlayingFieldRepository } from 'app/core/api/playingField.repository';
+import { Dispatch } from 'react';
 
 export function playingFieldList(
     playingField: Array<PlayingField>,
@@ -46,7 +47,7 @@ export function updatePlayingField(
 }
 
 export function playingFieldListAsync() {
-    return function (dispacth: any) {
+    return function (dispacth: Dispatch<PlayingListActionsTypes>) {
         PlayingFieldRepository.consultplayingField()
             .then((respuesta: any) =>
                 dispacth(
