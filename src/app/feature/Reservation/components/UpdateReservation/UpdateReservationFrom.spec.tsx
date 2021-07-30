@@ -103,11 +103,11 @@ describe('UpdateReservationForm', () => {
 
     const formSubmitted = componentProps.onSubmit.firstCall.args[1];
 
-    expect(formSubmitted.telefonoUsuario).toBe(parseInt('3186905006'));
+    expect(formSubmitted.telefonoUsuario).toBe(parseInt('3186905006',10));
     expect(formSubmitted.nombreUsuario).toBe('juan');
-    expect(formSubmitted.horaIngreso).toBe(parseInt('1626283800000'));
-    expect(formSubmitted.horaSalida).toBe(parseInt('1626283800000'));
-    expect(formSubmitted.idCancha).toBe(parseInt('1'));
-    expect(formSubmitted.valor).toBe(parseInt('50000'));
+    expect(formSubmitted.horaIngreso).toBe(parseInt('1626283800000',10));
+    expect(formSubmitted.horaSalida).toBe(parseInt('1626283800000',10));
+    expect(formSubmitted.idCancha).toBe(parseInt('1',10));
+    expect(formSubmitted.valor).toBe(parseInt('50000',10));
   });
 });
