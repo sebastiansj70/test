@@ -61,12 +61,12 @@ export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
   ) => {
     onSubmit({
       idTicket: values.idTicket,
-      telefonoUsuario: parseInt(values.telefonoUsuario),
+      telefonoUsuario: parseInt(values.telefonoUsuario,10),
       nombreUsuario: values.nombreUsuario,
-      horaIngreso: parseInt(values.horaIngreso),
-      horaSalida: parseInt(values.horaSalida),
-      idCancha: parseInt(values.idCancha),
-      valor: parseInt(values.valor),
+      horaIngreso: parseInt(values.horaIngreso,10),
+      horaSalida: parseInt(values.horaSalida,10),
+      idCancha: parseInt(values.idCancha,10),
+      valor: parseInt(values.valor,10),
     });
     resetForm();
     handleReservationList();

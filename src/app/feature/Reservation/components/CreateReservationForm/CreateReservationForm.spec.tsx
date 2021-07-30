@@ -32,14 +32,14 @@ describe('CreateReservationForm ', () => {
       submitButton && fireEvent.click(submitButton);
     });
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(parseInt('6'));
-    expect(spans[parseInt('0')].textContent).toBe('El campo telefono de usuario es requerido.');
-    expect(spans[parseInt('1')].textContent).toBe('El campo nombre de usuario es requerido.');
-    expect(spans[parseInt('2')].textContent).toBe('El campo hora de ingreso es requerido.');
-    expect(spans[parseInt('3')].textContent).toBe('El campo hora de salida es requerido.');
-    expect(spans[parseInt('4')].textContent).toBe('El campo numero de cancha es requerido.'
+    expect(spans.length).toBe(parseInt('6',10));
+    expect(spans[parseInt('0',10)].textContent).toBe('El campo telefono de usuario es requerido.');
+    expect(spans[parseInt('1',10)].textContent).toBe('El campo nombre de usuario es requerido.');
+    expect(spans[parseInt('2',10)].textContent).toBe('El campo hora de ingreso es requerido.');
+    expect(spans[parseInt('3',10)].textContent).toBe('El campo hora de salida es requerido.');
+    expect(spans[parseInt('4',10)].textContent).toBe('El campo numero de cancha es requerido.'
     );
-    expect(spans[parseInt('5')].textContent).toBe('El campo valor es requerido.');
+    expect(spans[parseInt('5',10)].textContent).toBe('El campo valor es requerido.');
   });
 
   it('debe fallar al enviar dos campos faltantes', async () => {
@@ -71,9 +71,9 @@ describe('CreateReservationForm ', () => {
     });
 
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(parseInt('2'));
-    expect(spans[parseInt('0')].textContent).toBe('El campo numero de cancha es requerido.');
-    expect(spans[parseInt('1')].textContent).toBe('El campo valor es requerido.' );
+    expect(spans.length).toBe(parseInt('2',10));
+    expect(spans[parseInt('0',10)].textContent).toBe('El campo numero de cancha es requerido.');
+    expect(spans[parseInt('1',10)].textContent).toBe('El campo valor es requerido.' );
   });
 
   it('deberia eniviar', async () => {
@@ -114,13 +114,13 @@ describe('CreateReservationForm ', () => {
 		submitButton && fireEvent.click(submitButton);
 	});
 
-    const formSubmitted = componentProps.onSubmit.firstCall.args[parseInt('0')];
+    const formSubmitted = componentProps.onSubmit.firstCall.args[parseInt('0',10)];
 
-    expect(formSubmitted.telefonoUsuario).toBe(parseInt('3186905006'));
+    expect(formSubmitted.telefonoUsuario).toBe(parseInt('3186905006',10));
     expect(formSubmitted.nombreUsuario).toBe('juan');
-    expect(formSubmitted.horaIngreso).toBe(parseInt('1626283800000'));
-    expect(formSubmitted.horaSalida).toBe(parseInt('1626283800000'));
-    expect(formSubmitted.idCancha).toBe(parseInt('1'));
-    expect(formSubmitted.valor).toBe(parseInt('50000'));
+    expect(formSubmitted.horaIngreso).toBe(parseInt('1626283800000',10));
+    expect(formSubmitted.horaSalida).toBe(parseInt('1626283800000',10));
+    expect(formSubmitted.idCancha).toBe(parseInt('1',10));
+    expect(formSubmitted.valor).toBe(parseInt('50000',10));
   });
 });

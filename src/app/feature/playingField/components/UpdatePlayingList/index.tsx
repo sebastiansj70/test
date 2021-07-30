@@ -40,8 +40,8 @@ export const UpdatePlayingList: React.FC<UpdatePlayingListProps> = ({
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
-    onSubmit(parseInt(values.idCancha), {
-      idCancha: parseInt(values.idCancha),
+    onSubmit(parseInt(values.idCancha,10), {
+      idCancha: parseInt(values.idCancha,10),
       statusCancha: values.statusCancha,
     });
     resetForm();
