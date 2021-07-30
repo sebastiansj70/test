@@ -9,7 +9,7 @@ import {
 } from './ReservationActionTypes';
 import { Reservation } from 'app/feature/Reservation/models/Reservation';
 import { ReservationRepository } from 'app/core/api/reservation.repository';
-
+import { Dispatch } from 'react';
 
 export function reservationList(
     areservationList: Array<Reservation>
@@ -60,9 +60,9 @@ export function updateReservation(
 
 
 export function reservationListAsync() {
-    return function (dispacth: any) {
+    return function (dispacth: Dispatch<ReservationActionTypes>) {
         ReservationRepository.consultReservations()
-            .then((respuesta: any) =>
+            .then((respuesta) =>
                 dispacth(
                     reservationList(respuesta.data)
                 )

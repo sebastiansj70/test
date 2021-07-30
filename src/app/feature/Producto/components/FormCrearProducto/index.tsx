@@ -15,7 +15,7 @@ interface FormValues {
 }
 
 interface FormCrearProductoProp {
-  onSubmit: (payload: Producto) => any;
+  onSubmit: (payload: Producto) => void;
   disabled?: boolean;
   formTitle: string;
   initialValues?: FormValues;

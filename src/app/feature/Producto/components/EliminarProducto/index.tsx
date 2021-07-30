@@ -4,7 +4,7 @@ import { Button } from 'app/shared/components/Button';
 import { Producto } from '../../models/Producto';
 
 interface BtnEliminarProductoProps {
-  onEliminar: (producto: Producto) => any;
+  onEliminar: (producto: Producto) => void;
   producto: Producto;
 }
 

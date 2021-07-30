@@ -6,6 +6,7 @@ import {
 } from './ProductosTiposAcciones';
 import { Producto } from 'app/feature/Producto/models/Producto';
 import { ProductoRepositorio } from 'app/core/api/productos.repositorio';
+import { Dispatch } from 'react';
 
 export function listarProductos(
   productos: Array<Producto>,
@@ -35,10 +36,10 @@ export function eliminarProducto(producto: Producto): TiposAccionesProducto {
 }
 
 export function listarProductosAsync(numeroPagina: number) {
-  return function (dispacth: any) {
+  return function (dispacth: Dispatch<TiposAccionesProducto>) {
     ProductoRepositorio.consultarPorPagina(
       numeroPagina
-    ).then((respuesta: any) =>
+    ).then((respuesta) =>
       dispacth(
         listarProductos(respuesta.data.articles, respuesta.data.articlesCount)
       )
