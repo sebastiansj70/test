@@ -95,11 +95,11 @@ describe('CreateReservationForm ', () => {
     });
 
     await wait(() => {
-      horaIngreso && fireEvent.change( horaIngreso,setTextEvent('horaIngreso', '1626283800000'));
+      horaIngreso && fireEvent.change( horaIngreso,setTextEvent('horaIngreso', '1626888600000'));
     });
 
     await wait(() => {
-      horaSalida && fireEvent.change( horaSalida, setTextEvent('horaSalida', '1626283800000'));
+      horaSalida && fireEvent.change( horaSalida, setTextEvent('horaSalida', '1626888600000'));
     });
 
     await wait(() => {
@@ -111,15 +111,15 @@ describe('CreateReservationForm ', () => {
     });
 
     await wait(() => {
-		submitButton && fireEvent.click(submitButton);
+      submitButton && fireEvent.click(submitButton);
 	});
 
     const formSubmitted = componentProps.onSubmit.firstCall.args[parseInt('0',10)];
 
     expect(formSubmitted.telefonoUsuario).toBe(parseInt('3186905006',10));
     expect(formSubmitted.nombreUsuario).toBe('juan');
-    expect(formSubmitted.horaIngreso).toBe(parseInt('1626283800000',10));
-    expect(formSubmitted.horaSalida).toBe(parseInt('1626283800000',10));
+    expect(formSubmitted.horaIngreso).toBe(parseInt('1626888600000',10));
+    expect(formSubmitted.horaSalida).toBe(parseInt('1626888600000',10));
     expect(formSubmitted.idCancha).toBe(parseInt('1',10));
     expect(formSubmitted.valor).toBe(parseInt('50000',10));
   });
