@@ -112,7 +112,7 @@ describe('CreateReservationForm ', () => {
 
     await wait(() => {
       submitButton && fireEvent.click(submitButton);
-	});
+    });
 
     const formSubmitted = componentProps.onSubmit.firstCall.args[parseInt('0',10)];
 
