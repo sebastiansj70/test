@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
-import React from 'react';
-import { RenderResult, render, wait, fireEvent } from '@testing-library/react';
-import { UpdateReservation } from '.';
+import { RenderResult, fireEvent, render, wait } from '@testing-library/react';
 import { SinonStub, stub } from 'sinon';
+import React from 'react';
+import { UpdateReservation } from '.';
 import { setTextEvent } from 'app/shared/utils/test';
 
 describe('UpdateReservationForm', () => {

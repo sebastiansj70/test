@@ -1,8 +1,7 @@
 import '@testing-library/jest-dom';
+import { RenderResult, render } from '@testing-library/react';
 import React from 'react';
-import { RenderResult, render, wait, fireEvent } from '@testing-library/react';
 import { ReservationList } from '.';
-import { setTextEvent } from 'app/shared/utils/test';
 
 describe('', () => {
   let componentWrapper: RenderResult;

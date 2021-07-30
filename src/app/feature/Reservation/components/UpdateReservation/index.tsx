@@ -1,8 +1,8 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import * as Yup from 'yup';
-import { Button } from 'app/shared/components/Button';
 import { Form, SpanError } from './styles';
+import { Button } from 'app/shared/components/Button';
 import { FormikHelpers } from 'formik/dist/types';
 import { Input } from 'app/shared/components/Input';
 import { Reservation } from '../../models/Reservation';

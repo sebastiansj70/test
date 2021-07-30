@@ -7,7 +7,7 @@ describe('Cancha', () => {
     })
 
     it('frontpage can be opened', () => {
-        cy.contains('Crear Cancha')
+        cy.contains('Crear campo de juego')
     })
 
     it('create new Cancha ', () => {
@@ -19,7 +19,7 @@ describe('Cancha', () => {
 
 
     it('update cancha', () => {
-        cy.contains('Canchas').click()
+        cy.contains('Campos de juego').click()
         cy.get('div[id="canchaList"]').first().click()
         cy.get('input[name="statusCancha"]').clear()
         cy.get('input[name="statusCancha"]').type('Malo')

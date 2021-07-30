@@ -1,8 +1,7 @@
 import '@testing-library/jest-dom';
-import React from 'react';
-import { RenderResult, render, wait, fireEvent } from '@testing-library/react';
+import { RenderResult, render } from '@testing-library/react';
 import { PlayingFieldList } from '.';
-import { setTextEvent } from 'app/shared/utils/test';
+import React from 'react';
 
 describe('PlayingFieldList test', () => {
   let componentWrapper: RenderResult;

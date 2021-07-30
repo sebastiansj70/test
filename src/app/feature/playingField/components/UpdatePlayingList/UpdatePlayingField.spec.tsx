@@ -1,11 +1,9 @@
 import '@testing-library/jest-dom';
-import React from 'react';
-import { RenderResult, render, wait, fireEvent } from '@testing-library/react';
-import { UpdatePlayingList } from '.';
+import { RenderResult, fireEvent, render, wait } from '@testing-library/react';
 import { SinonStub, stub } from 'sinon';
+import React from 'react';
+import { UpdatePlayingList } from '.';
 import { setTextEvent } from 'app/shared/utils/test';
-import { Input } from 'app/shared/components/Input';
-import { stat } from 'fs';
 
 describe('UpdatePlayinField Form', () => {
   let componentWrapper: RenderResult;
