@@ -1,13 +1,13 @@
-import * as PropTypes from "prop-types";
-import * as React from "react";
-import * as Yup from "yup";
-import { Form, SpanError } from "./styles";
-import { Button } from "app/shared/components/Button";
-import { FormikHelpers } from "formik/dist/types";
-import { Input } from "app/shared/components/Input";
-import { PlayingField } from "../../models/PlayingField";
-import { Tittle } from "app/shared/components/Tittle";
-import { useFormik } from "formik";
+import * as PropTypes from 'prop-types';
+import * as React from 'react';
+import * as Yup from 'yup';
+import { Form, SpanError } from './styles';
+import { Button } from 'app/shared/components/Button';
+import { FormikHelpers } from 'formik/dist/types';
+import { Input } from 'app/shared/components/Input';
+import { PlayingField } from '../../models/PlayingField';
+import { Tittle } from 'app/shared/components/Tittle';
+import { useFormik } from 'formik';
 
 interface FormValues {
   idCancha: string;
@@ -23,8 +23,8 @@ interface PlayingFieldFormProp {
 }
 
 const validationSchema = Yup.object().shape<FormValues>({
-  idCancha: Yup.string().required("El campo id cancha es requerido."),
-  statusCancha: Yup.string().required("El campo status Cancha es requerido."),
+  idCancha: Yup.string().required('El campo id cancha es requerido.'),
+  statusCancha: Yup.string().required('El campo status Cancha es requerido.'),
 });
 
 export const PlayingFieldForm: React.FC<PlayingFieldFormProp> = ({
@@ -33,8 +33,8 @@ export const PlayingFieldForm: React.FC<PlayingFieldFormProp> = ({
   disabled,
   formTitle,
   initialValues = {
-    idCancha: "",
-    statusCancha: "",
+    idCancha: '',
+    statusCancha: '',
   },
 }) => {
   const handleSubmit = (
@@ -60,24 +60,24 @@ export const PlayingFieldForm: React.FC<PlayingFieldFormProp> = ({
       <Tittle msg={formTitle} />
       <Input
         disabled={disabled}
-        placeholder="Número de cancha"
-        name="idCancha"
+        placeholder='Número de cancha'
+        name='idCancha'
         onChange={formik.handleChange}
-        type="number"
+        type='number'
       />
       {formik.touched.idCancha && formik.errors.idCancha && (
         <SpanError>{formik.errors.idCancha}</SpanError>
       )}
       <Input
         disabled={disabled}
-        placeholder="Estado de la cancha"
-        name="statusCancha"
+        placeholder='Estado de la cancha'
+        name='statusCancha'
         onChange={formik.handleChange}
       />
       {formik.touched.statusCancha && formik.errors.statusCancha && (
         <SpanError>{formik.errors.statusCancha}</SpanError>
       )}
-      <Button type="submit">Registrar</Button>
+      <Button type='submit'>Registrar</Button>
     </Form>
   );
 };
