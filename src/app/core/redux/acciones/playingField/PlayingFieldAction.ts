@@ -49,7 +49,7 @@ export function updatePlayingField(
 export function playingFieldListAsync() {
     return function (dispacth: Dispatch<PlayingListActionsTypes>) {
         PlayingFieldRepository.consultplayingField()
-            .then((respuesta: any) =>
+            .then((respuesta) =>
                 dispacth(
                     playingFieldList(respuesta.data)
                 )

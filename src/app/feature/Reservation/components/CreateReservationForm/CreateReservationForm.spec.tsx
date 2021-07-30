@@ -93,11 +93,11 @@ describe('CreateReservationForm ', () => {
     await wait(() => {
       nombreUsuario && fireEvent.change(nombreUsuario, setTextEvent('nombreUsuario', 'juan'));
     });
-	
+
 	await wait(() => {
 	  horaSalida && fireEvent.change( horaSalida, setTextEvent('horaSalida', '1626888600000'));
 	});
-	
+
     await wait(() => {
       horaIngreso && fireEvent.change( horaIngreso,setTextEvent('horaIngreso', '1626888600000'));
     });
