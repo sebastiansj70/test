@@ -18,7 +18,7 @@ interface ReservationManagmentProps {
 }
 
 
-export const reservationManagment: React.FC<ReservationManagmentProps> = ({
+export const ReservationManagment: React.FC<ReservationManagmentProps> = ({
     reservationLists,
     reservation,
     addReservation,
@@ -71,7 +71,7 @@ export const reservationManagment: React.FC<ReservationManagmentProps> = ({
 };
 
 
-reservationManagment.propTypes = {
+ReservationManagment.propTypes = {
     reservationLists: PropTypes.array.isRequired,
     addReservation: PropTypes.func.isRequired,
     reservationList: PropTypes.func.isRequired,
