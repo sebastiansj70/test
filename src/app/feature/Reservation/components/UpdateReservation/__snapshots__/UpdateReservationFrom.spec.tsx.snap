@@ -3,7 +3,7 @@
 exports[`UpdateReservationForm should match snapshot 1`] = `
 <div>
   <form
-    class="sc-AxiKw iPybUT"
+    class="sc-AxirZ gdufpf"
   >
     <h1
       class="sc-AxgMl jfqWoR"
@@ -47,7 +47,7 @@ exports[`UpdateReservationForm should match snapshot 1`] = `
       value="50000"
     />
     <button
-      class="sc-AxjAm kgxTKy"
+      class="sc-AxhCb XVgvt"
       name="Actualizar"
       type="submit"
     >

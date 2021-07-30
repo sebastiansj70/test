@@ -20,7 +20,7 @@ interface FormValues {
 }
 
 interface UpdateReservationProps {
-  onSubmit: (idReservation: number, payload: Reservation) => any;
+  onSubmit: (idReservation: number, payload: Reservation) => void;
   formTitle: string;
   reservation: Reservation;
   initialValues?: FormValues;

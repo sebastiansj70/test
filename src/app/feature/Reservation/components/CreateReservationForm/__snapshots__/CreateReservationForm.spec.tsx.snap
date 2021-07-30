@@ -3,7 +3,7 @@
 exports[`CreateReservationForm  should match snapshot 1`] = `
 <div>
   <form
-    class="sc-AxiKw iPybUT"
+    class="sc-AxirZ gdufpf"
   >
     <h1
       class="sc-AxhUy ftqyIz"
@@ -47,7 +47,7 @@ exports[`CreateReservationForm  should match snapshot 1`] = `
       placeholder="Valor"
     />
     <button
-      class="sc-AxjAm kgxTKy"
+      class="sc-AxiKw hNdhxp"
       name="registro-ticket"
       type="submit"
     >

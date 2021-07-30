@@ -12,11 +12,11 @@ import { ReservationRepository } from 'app/core/api/reservation.repository';
 
 
 export function reservationList(
-    reservationList: Array<Reservation>
+    areservationList: Array<Reservation>
 ): ReservationActionTypes {
     return {
         type: RESERVATION_LIST,
-        payload: reservationList
+        payload: areservationList
     };
 }
 

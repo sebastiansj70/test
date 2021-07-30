@@ -27,8 +27,8 @@ export const PlayingFieldList: React.FC<PlayingFieldListProps> = ({
 
   const [open, setOpen] = React.useState(false);
 
-  const handleOpenModal = (playingField: PlayingField) => {
-    savePalyingField(playingField);
+  const handleOpenModal = (playingFields: PlayingField) => {
+    savePalyingField(playingFields);
     setOpen(true);
   };
 
@@ -39,17 +39,17 @@ export const PlayingFieldList: React.FC<PlayingFieldListProps> = ({
   return (
     <ContentCard>
       <Tittle msg="Lista de campos de juego" />
-      {playingFieldLists.map((playingField: PlayingField) => {
+      {playingFieldLists.map((aplayingField: PlayingField) => {
         return (
           <div
             id={'canchaList'}
             key={Math.random()}
-            onClick={() => handleOpenModal(playingField)}
+            onClick={() => handleOpenModal(aplayingField)}
           >
             <CardCancha
               key={Math.random()}
-              idCancha={playingField.idCancha}
-              statusCancha={playingField.statusCancha}
+              idCancha={aplayingField.idCancha}
+              statusCancha={aplayingField.statusCancha}
             />
           </div>
         );

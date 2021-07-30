@@ -83,7 +83,6 @@ export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
       <Tittle msg={formTitle} />
       <Input
         id="telefonoUsuario"
-        disabled={disabled}
         placeholder="Telefono de usuario"
         name="telefonoUsuario"
         onChange={formik.handleChange}
@@ -93,7 +92,6 @@ export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
       )}
       <Input
         id="nombreUsuario"
-        disabled={disabled}
         placeholder="Nombre de usuario"
         name="nombreUsuario"
         onChange={formik.handleChange}
@@ -103,7 +101,6 @@ export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
       )}
       <Input
         id="horaIngreso"
-        disabled={disabled}
         placeholder="Hora de ingreso"
         name="horaIngreso"
         onChange={formik.handleChange}
@@ -113,7 +110,6 @@ export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
       )}
       <Input
         id="horaSalida"
-        disabled={disabled}
         placeholder="Hora salida"
         name="horaSalida"
         onChange={formik.handleChange}
@@ -123,7 +119,6 @@ export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
       )}
       <Input
         id="idCancha"
-        disabled={disabled}
         placeholder="Numero de cancha"
         name="idCancha"
         onChange={formik.handleChange}
@@ -141,9 +136,7 @@ export const CreateReservationForm: React.FC<CreateReservationFormProp> = ({
       {formik.touched.valor && formik.errors.valor && (
         <SpanError>{formik.errors.valor}</SpanError>
       )}
-      <Button type="submit" name="registro-ticket">
-        Registrar
-      </Button>
+      <Button type="submit" name="registro-ticket">Registrar</Button>
     </Form>
   );
 };

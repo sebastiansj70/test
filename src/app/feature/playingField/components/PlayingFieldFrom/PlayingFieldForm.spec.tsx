@@ -33,7 +33,8 @@ describe('PlayingFieldForm', () => {
     });
 
     const spans = elem.querySelectorAll('span');
-    expect(spans.length).toBe(2);
+    let lengthSpans = 2;
+    expect(spans.length).toBe(lengthSpans);
     expect(spans[0].textContent).toBe('El campo id cancha es requerido.');
     expect(spans[1].textContent).toBe('El campo status Cancha es requerido.');
   });

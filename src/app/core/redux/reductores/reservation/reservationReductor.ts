@@ -40,10 +40,9 @@ export default function (
             };
         }
         case SAVE_RESERVATION: {
-            const reservation = action.payload;
             return {
                 ...state,
-                reservation: reservation
+                reservation: action.payload
             };
         }
 
