@@ -6,9 +6,9 @@ import {
     SAVE_PLAYING_FIELD,
     UPDATE_PLAYING_FIELD
 } from './PlayingFieldActionsTypes';
+import { Dispatch } from 'react';
 import { PlayingField } from 'app/feature/playingField/models/PlayingField';
 import { PlayingFieldRepository } from 'app/core/api/playingField.repository';
-import { Dispatch } from 'react';
 
 export function playingFieldList(
     playingField: Array<PlayingField>,

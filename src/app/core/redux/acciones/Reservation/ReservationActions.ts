@@ -7,9 +7,9 @@ import {
     SAVE_RESERVATION,
     UPDATE_RESERVATION
 } from './ReservationActionTypes';
+import { Dispatch } from 'react';
 import { Reservation } from 'app/feature/Reservation/models/Reservation';
 import { ReservationRepository } from 'app/core/api/reservation.repository';
-import { Dispatch } from 'react';
 
 export function reservationList(
     areservationList: Array<Reservation>

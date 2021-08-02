@@ -4,9 +4,9 @@ import {
   LISTAR_PRODUCTOS,
   TiposAccionesProducto,
 } from './ProductosTiposAcciones';
+import { Dispatch } from 'react';
 import { Producto } from 'app/feature/Producto/models/Producto';
 import { ProductoRepositorio } from 'app/core/api/productos.repositorio';
-import { Dispatch } from 'react';
 
 export function listarProductos(
   productos: Array<Producto>,
